@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="uuid-247e4fd1-e93c-4ed1-97ef-f14ae20142fc" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 171.5 211.8"><metadata><?xpacket begin="" id="W5M0MpCehiHzreSzNTczkc9d"?><x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="XMP Core 6.0.0"><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><rdf:Description rdf:about="" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmpMM:DocumentID="xmp.did:cb9f5498-bb58-4572-8043-8c369e6bfb9b" xmpMM:InstanceID="xmp.iid:cb9f5498-bb58-4572-8043-8c369e6bfb9b" dcterms:provenance="https://cai-manifests.adobe.com/manifests/urn-c2pa-3ced509b-21dc-496b-b243-c89c71f4715a-adobe"> </rdf:Description></rdf:RDF></x:xmpmeta>
+<svg id="uuid-433e1d88-3d54-48bf-a4a5-0decf6583531" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 171.5 211.8"><metadata><?xpacket begin="" id="W5M0MpCehiHzreSzNTczkc9d"?><x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="XMP Core 6.0.0"><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><rdf:Description rdf:about="" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmpMM:DocumentID="xmp.did:cb9f5498-bb58-4572-8043-8c369e6bfb9b" xmpMM:InstanceID="xmp.iid:cb9f5498-bb58-4572-8043-8c369e6bfb9b" dcterms:provenance="https://cai-manifests.adobe.com/manifests/urn-c2pa-6941187a-c400-4d96-a33c-3d8f29dd8962-adobe"> </rdf:Description></rdf:RDF></x:xmpmeta>
 <?xpacket end="w"?></metadata>
   <defs>
-    <clipPath id="uuid-f692cba1-2d4b-4e19-aec9-bf693a1777e9">
+    <clipPath id="uuid-23b3f51b-2694-47f4-8738-413d9f35e1a9">
       <rect x="46.3" y="49.7" width="46.2" height="121.4" fill="none"/>
     </clipPath>
   </defs>
@@ -355,7 +355,7 @@
     <path d="M67.9,170.3l-6.2,2.6.6.8c-1.4.5-2.9.7-4.5.7-5.8,0-10.4-3-10.4-6.8s.2-1.7.7-2.5c.1-.2,0-.5-.2-.7s-.6,0-.7.2c-.5,1-.8,1.9-.8,3,0,4.3,5.1,7.8,11.4,7.8s3.6-.3,5.2-.8l.8,1.1L67.9,170.3Z" fill="#ed1c24"/>
     <path d="M16.5,130.1h8.9l1.3-74.2-2.8-4.7s-1-.4-1.7-.4-1.2.1-1.3.2-2.9,4.3-2.9,4.3L16.5,130.1Z" fill="#c9b5d8" opacity=".4"/>
     <polygon points="20.9 140 20.9 134.9 20.1 134.9 20 140 19.2 140 20.5 143.1 21.7 140 20.9 140" fill="#ed1c24"/>
-    <path d="M121.6,116l10.3-.2c-.1.3,7.2-23.2,7.2-23.2,0,0,.2.1.2.1-2.7,8.6-5.6,18.1-8.4,26.6,2.5-8.6,5.5-18,8.2-26.7h.2c0,.2-7.3,23.3-7.3,23.4C131.9,115.9,121.5,116.1,121.6,116H121.6Z" fill="#231f20"/>
+    <path d="M121.6,116l10.3-.2c-.1.3,7.2-23.2,7.2-23.2,0,0,.2.1.2.1-2.7,8.6-5.6,18.1-8.4,26.6,2.5-8.6,5.5-18,8.2-26.7,0,0,.2.1.2.1,0,0-7.3,23.2-7.3,23.3C131.9,115.9,121.5,116.1,121.6,116H121.6Z" fill="#231f20"/>
     <path d="M132.1,115.7h-10.3c3.3-4.2,11.5-23.3,11.5-23.3l3-5.5,5.6.8-2.5,4.8L132.1,115.7Z" fill="#f7d39e" opacity=".4"/>
     <path d="M143.5,52.6l.1,30.8s-8.3-1.4-15.9-1-11.3,1.1-11.3,1.1l.2-30.9h26.9Z" fill="#f7d39e" opacity=".4"/>
     <polygon points="139 107 139.4 84.3 138.6 84.3 138.2 107 137.4 107 138.6 110.1 139.8 107 139 107" fill="#ed1c24"/>
