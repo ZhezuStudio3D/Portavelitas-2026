@@ -1,192 +1,644 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#8E2F33">
-<title>Información de emergencia · Rosa María Gómez</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --red:#8E2F33; --red-2:#A03A3E; --bone:#F6F4EE; --ink:#16231F; --muted:#5F6B66;
-  --gold:#C9A66B; --line:#DAD6CA; --on-red:#F8EEEA; --soft:#EBCFCB;
-  --alert-bg:#FDF8F6; --alert-border:#E5C5C0;
-  --serif:"Newsreader",Georgia,"Times New Roman",serif;
-  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --helv:"Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-*{box-sizing:border-box;margin:0}
-html{-webkit-text-size-adjust:100%;background:var(--red)}
-body{position:relative;background:var(--red);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.4;min-height:100vh;min-height:100dvh;overflow-x:hidden}
-.bgpat{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.page{position:relative;z-index:1;max-width:440px;margin:0 auto;padding:max(14px,env(safe-area-inset-top)) 14px max(10px,env(safe-area-inset-bottom));min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;gap:10px}
-.top{display:flex;align-items:center;gap:12px;color:var(--on-red);padding:2px 4px}
-.top svg{width:40px;height:44px;flex:none}
-.top h1{font-family:var(--serif);font-weight:300;font-style:italic;font-size:22px;line-height:1.1}
-.top p{font-size:12px;color:var(--soft);letter-spacing:.03em}
-.card{position:relative;background:var(--bone);border-radius:20px;padding:18px 18px 12px}
-.card::before{content:"";position:absolute;inset:6px;border:1px solid var(--gold);border-radius:14px;opacity:.6;pointer-events:none}
-.id{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 4px}
-h2.name{font-family:var(--serif);font-weight:300;font-size:clamp(29px,8.4vw,34px);line-height:1.04;letter-spacing:-.015em}
-.medal{width:70px;height:70px;border-radius:50%;border:1px solid var(--red);display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none;color:var(--red)}
-.medal small{font-size:10px;letter-spacing:.12em;line-height:1;color:var(--muted)}
-.medal b{font-family:var(--serif);font-weight:300;font-size:30px;line-height:1.05}
-.sos{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:10px;background:var(--red);color:var(--on-red);text-decoration:none;border-radius:999px;padding:8px 20px;min-height:54px}
-.sos svg{width:22px;height:22px;flex:none}
-.sos span{text-align:left;line-height:1.15;font-weight:500;font-size:18px}
-.sos small{display:block;font-weight:400;font-size:12px;color:var(--soft)}
-.sos:hover{background:var(--red-2)}
-.steps{list-style:none;padding:0;margin:10px 4px 0}
-.steps li{position:relative;padding:3px 0 3px 20px;font-size:15px;line-height:1.35}
-.steps li::before{content:"";position:absolute;left:3px;top:11px;width:7px;height:7px;border-radius:50%;background:var(--red)}
-.steps b{font-weight:500}
-.steps svg{width:14px;height:14px;vertical-align:-2px;color:var(--red)}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instructivo Portavelitas - Paso a Paso</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* Estilos para Alergias / EPS */
-.medical-info{background:var(--alert-bg);border:1px solid var(--alert-border);border-radius:12px;padding:8px 12px;margin:10px 4px 0;display:flex;flex-direction:column;gap:5px}
-.med-item{display:flex;justify-content:space-between;align-items:baseline;font-size:14px}
-.med-item+.med-item{border-top:1px dashed var(--line);padding-top:5px}
-.med-item span{color:var(--muted);font-size:13px}
-.med-item b{font-weight:500;color:var(--ink);text-align:right}
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #18181b;
+      color: #f4f4f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      gap: 18px;
+    }
 
-.label{font-family:var(--serif);font-size:19px;margin:10px 4px 2px;padding-top:8px;border-top:1px solid var(--line)}
-.contact{display:flex;align-items:center;gap:8px;padding:6px 4px}
-.contact+.contact{border-top:1px solid var(--line)}
-.who{flex:1;min-width:0}
-.who small{display:block;font-size:12px;color:var(--muted);white-space:nowrap}
-.who b{display:block;font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.15;font-variant-numeric:lining-nums tabular-nums}
-.btn{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;cursor:pointer;text-decoration:none;font:inherit}
-.btn svg{width:20px;height:20px}
-.call{background:var(--red);color:var(--bone);border:1px solid var(--red)}
-.call:hover{background:var(--red-2)}
-.wa{background:transparent;color:var(--red);border:1px solid var(--red)}
-.wa:hover{background:rgba(142,47,51,.08)}
-.wa[disabled]{opacity:.5}
-a:focus-visible,.btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
-footer{text-align:center;margin-top:auto;padding:2px 0 2px}
-.by{font-family:var(--helv);font-weight:500;font-size:12px;letter-spacing:.06em;color:var(--on-red);opacity:.9}
+    .book-stage {
+      width: 100%;
+      max-width: 920px;
+      background: #ffffff;
+      color: #18181b;
+      border-radius: 12px;
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.55),
+        inset 18px 0 28px -18px rgba(0, 0, 0, 0.25);
+      border-left: 10px solid #27272a;
+      padding: 24px;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-/* Escala con la altura de la pantalla */
-.page{gap:clamp(4px,1.5dvh,14px)}
-.top svg{width:clamp(32px,5dvh,44px);height:auto}
-.top h1{font-size:clamp(19px,2.8dvh,24px)}
-.card{flex:1;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(10px,2.5dvh,22px) 18px clamp(8px,1.5dvh,16px)}
-h2.name{font-size:clamp(26px,4.5dvh,38px)}
-.medal{width:clamp(56px,8dvh,70px);height:clamp(56px,8dvh,70px)}
-.medal b{font-size:clamp(25px,3.5dvh,32px)}
-.sos{margin-top:0;min-height:clamp(44px,7dvh,60px)}
-.sos span{font-size:clamp(17px,2.4dvh,20px)}
-.steps{margin:0 4px}
-.steps li{font-size:clamp(14px,1.8dvh,15px);padding:clamp(2px,.6dvh,5px) 0 clamp(2px,.6dvh,5px) 20px}
-.steps li::before{top:50%;transform:translateY(-50%)}
-.label{margin:0 4px;padding-top:clamp(6px,1.2dvh,10px);font-size:clamp(18px,2.4dvh,21px)}
-.contact{padding:clamp(2px,1dvh,10px) 4px}
-.who b{font-size:clamp(23px,3.4dvh,29px)}
-.btn{width:clamp(38px,5.5dvh,48px);height:clamp(38px,5.5dvh,48px)}
-footer{padding:clamp(2px,.4dvh,6px) 0}
-.id{flex-direction:column;justify-content:center;gap:clamp(4px,1dvh,10px);text-align:center;padding:0}
-h2.name{text-align:center;font-size:clamp(28px,4.6dvh,38px)}
-</style>
+    .page {
+      display: none;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      animation: fadePage 0.25s ease;
+    }
+
+    .page.active {
+      display: flex;
+    }
+
+    @keyframes fadePage {
+      from {
+        opacity: 0;
+        transform: translateX(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .page svg {
+      width: 100%;
+      height: auto;
+      max-height: 72vh;
+      display: block;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: #ffffff;
+      color: #18181b;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.12s ease, opacity 0.15s ease, background-color 0.15s ease;
+    }
+
+    button:hover:not(:disabled) {
+      background: #e4e4e7;
+      transform: translateY(-1px);
+    }
+
+    button:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    button:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .page-indicator {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #e4e4e7;
+      min-width: 110px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-<svg class="bgpat" aria-hidden="true">
-  <defs>
-    <pattern id="med" width="260" height="260" patternUnits="userSpaceOnUse">
-      <g fill="none" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-        <path transform="translate(24 22) scale(.8)" d="M15 5h10v10h10v10H25v10H15V25H5V15h10z"/>
-        <g transform="translate(150 14)"><path d="M20 34C8 26 5 18 9 12c3-4 9-3 11 2c2-5 8-6 11-2c4 6 1 14-11 20z"/><path d="M9 21h6l2-5 3 9 2-4h9"/></g>
-        <g transform="translate(86 112) rotate(12 20 20)"><path d="M20 5C14 14 10 19 10 25a10 10 0 0 0 20 0c0-6-4-11-10-20z"/><path d="M15 26a5 5 0 0 0 5 5"/></g>
-        <g transform="translate(196 112) rotate(-35 20 20)"><rect x="5" y="14" width="30" height="12" rx="6"/><path d="M20 14v12"/></g>
-        <g transform="translate(18 190)"><path d="M20 4l13 5v10c0 9-6 14-13 17C13 33 7 28 7 19V9z"/><path d="M20 13v12M14 19h12"/></g>
-        <g transform="translate(128 196)"><path d="M10 6v10a8 8 0 0 0 16 0V6"/><path d="M18 24v3a7 7 0 0 0 14 0v-4"/><circle cx="32" cy="21" r="3"/></g>
-        <circle cx="120" cy="70" r="2"/><circle cx="236" cy="60" r="2"/><circle cx="60" cy="150" r="2"/><circle cx="236" cy="222" r="2"/>
-        <path d="M222 24v10M217 29h10"/><path d="M52 98v10M47 103h10"/><path d="M104 168v10M99 173h10"/>
-      </g>
-    </pattern>
-  </defs>
-  <rect width="100%" height="100%" fill="url(#med)" opacity=".11"/>
-</svg>
 
-<div class="page">
-<header class="top">
-  <svg viewBox="0 0 110 120" fill="none" stroke="#F4DDB5" stroke-width="3" stroke-linecap="round" aria-hidden="true">
-    <circle cx="44" cy="60" r="22" fill="#F8EEEA" stroke="none"/>
-    <path d="M41 49h6v8h8v6h-8v8h-6v-8h-8v-6h8z" fill="#8E2F33" stroke="none"/>
-    <path d="M67.8 38.6A32 32 0 0 1 67.8 81.4"/><path d="M76.7 30.6A44 44 0 0 1 76.7 89.4"/><path d="M85.6 22.5A56 56 0 0 1 85.6 97.5"/>
-  </svg>
-  <div><h1>Información de emergencia</h1><p>Emergency information</p></div>
-</header>
+  <main class="book-stage" aria-label="Instructivo interactivo en formato libro">
+    <!-- HOJA 1: Contenido exacto del archivo adjuntado -->
+    <section class="page active" data-page="1">
+      <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" version="1.1" viewBox="0 0 514.83 211.82">
+        <!-- Generator: Adobe Illustrator 31.0.0, SVG Export Plug-In . SVG Version: 2.1.5 Build 84)  -->
+        <defs>
+          <style>
+            .st0, .st1, .st2 {
+              fill: none;
+            }
 
-<main class="card">
-  <div class="id">
-    <h2 class="name">Rosa María<br>Gómez</h2>
-    <div class="medal" role="img" aria-label="Grupo sanguíneo AB positivo"><small>RH</small><b>AB+</b></div>
-  </div>
+            .st1 {
+              stroke: #231f20;
+              stroke-miterlimit: 10;
+            }
 
-  <ul class="steps">
-    <li>Inconsciente o herida: <b>llama al 123</b>.</li>
-    <li>Luego avisa a un contacto.</li>
-    <li>Dile dónde están: usa el botón <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.6-6-10.5a6 6 0 0 1 12 0C18 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.2"/></svg>.</li>
-  </ul>
+            .st3 {
+              fill: #c9b5d8;
+            }
 
-  <!-- BLOQUE DE INFORMACIÓN MÉDICA Y EPS -->
-  <div class="medical-info">
-    <div class="med-item">
-      <span>Alergias / Alerta:</span>
-      <b>Penisilina / Indicar en médico</b> <!-- Edita aquí si hay alguna alergia específica -->
-    </div>
-    <div class="med-item">
-      <span>EPS Afiliada:</span>
-      <b>Compensar</b>
-    </div>
-  </div>
+            .st3, .st4, .st5, .st6 {
+              opacity: .39;
+            }
 
-  <a class="sos" href="tel:123">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-    <span>Llamar al 123<small>Línea de emergencias</small></span>
-  </a>
+            .st7 {
+              fill: url(#linear-gradient2);
+            }
 
-  <section class="contacts">
-  <p class="label">Contactos de emergencia</p>
-  <div class="contact">
-    <div class="who"><small>Contacto 1 · Efigenia, Acudiente</small><b>310 299 6845</b></div>
-    <a class="btn call" href="tel:+573102996845" aria-label="Llamar a Efigenia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
-    <button class="btn wa" type="button" data-num="573102996845" aria-label="Enviar mi ubicación a Efigenia por WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.6-6-10.5a6 6 0 0 1 12 0C18 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.2"/></svg></button>
-  </div>
-  <div class="contact">
-    <div class="who"><small>Contacto 2 · Angie, Acudiente</small><b>320 839 0714</b></div>
-    <a class="btn call" href="tel:+573208390714" aria-label="Llamar a Angie"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
-    <button class="btn wa" type="button" data-num="573208390714" aria-label="Enviar mi ubicación a Angie por WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.6-6-10.5a6 6 0 0 1 12 0C18 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.2"/></svg></button>
-  </div>
-  <div class="contact">
-    <div class="who"><small>Contacto 3 · Olga, Hermana</small><b>314 887 4861</b></div>
-    <a class="btn call" href="tel:+573148874861" aria-label="Llamar a Olga"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
-    <button class="btn wa" type="button" data-num="573148874861" aria-label="Enviar mi ubicación a Olga por WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.6-6-10.5a6 6 0 0 1 12 0C18 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.2"/></svg></button>
-  </div>
-  </section>
-</main>
+            .st8 {
+              fill: url(#linear-gradient1);
+            }
 
-<footer><div class="by">by Zhezu Studio 3D</div></footer>
-</div>
+            .st9 {
+              fill: url(#linear-gradient9);
+            }
 
-<script>
-(function(){
-  var intro='Hola, encontré a Rosa María y necesita ayuda. ';
-  document.querySelectorAll('.wa').forEach(function(btn){
-    function go(text){btn.disabled=false;location.href='https://wa.me/'+btn.dataset.num+'?text='+encodeURIComponent(text)}
-    btn.addEventListener('click',function(){
-      var fallback=intro+'No pude obtener mi ubicación, por favor llámame.';
-      if(!navigator.geolocation){go(fallback);return}
-      btn.disabled=true;
-      navigator.geolocation.getCurrentPosition(function(p){
-        go(intro+'Estamos aquí: https://maps.google.com/?q='+p.coords.latitude.toFixed(6)+','+p.coords.longitude.toFixed(6));
-      },function(){go(fallback)},{enableHighAccuracy:true,timeout:8000,maximumAge:30000});
-    });
-  });
-})();
-</script>
-</body>
-</html>
+            .st10 {
+              fill: url(#linear-gradient3);
+            }
+
+            .st11 {
+              fill: url(#linear-gradient6);
+            }
+
+            .st12 {
+              fill: url(#linear-gradient8);
+            }
+
+            .st13 {
+              fill: url(#linear-gradient7);
+            }
+
+            .st14 {
+              fill: url(#linear-gradient5);
+            }
+
+            .st15 {
+              fill: url(#linear-gradient4);
+            }
+
+            .st16 {
+              fill: #010101;
+            }
+
+            .st17 {
+              fill: url(#linear-gradient31);
+            }
+
+            .st18 {
+              fill: url(#linear-gradient30);
+            }
+
+            .st19 {
+              fill: url(#linear-gradient38);
+            }
+
+            .st20 {
+              fill: url(#linear-gradient32);
+            }
+
+            .st21 {
+              fill: url(#linear-gradient39);
+            }
+
+            .st22 {
+              fill: url(#linear-gradient34);
+            }
+
+            .st23 {
+              fill: url(#linear-gradient37);
+            }
+
+            .st24 {
+              fill: url(#linear-gradient35);
+            }
+
+            .st25 {
+              fill: url(#linear-gradient33);
+            }
+
+            .st26 {
+              fill: url(#linear-gradient36);
+            }
+
+            .st27 {
+              fill: url(#linear-gradient40);
+            }
+
+            .st28 {
+              fill: url(#linear-gradient41);
+            }
+
+            .st29 {
+              fill: url(#linear-gradient42);
+            }
+
+            .st30 {
+              fill: url(#linear-gradient46);
+            }
+
+            .st31 {
+              fill: url(#linear-gradient48);
+            }
+
+            .st32 {
+              fill: url(#linear-gradient43);
+            }
+
+            .st33 {
+              fill: url(#linear-gradient44);
+            }
+
+            .st34 {
+              fill: url(#linear-gradient47);
+            }
+
+            .st35 {
+              fill: url(#linear-gradient45);
+            }
+
+            .st36 {
+              fill: url(#linear-gradient49);
+            }
+
+            .st37 {
+              fill: url(#linear-gradient28);
+            }
+
+            .st38 {
+              fill: url(#linear-gradient29);
+            }
+
+            .st39 {
+              fill: url(#linear-gradient18);
+            }
+
+            .st40 {
+              fill: url(#linear-gradient13);
+            }
+
+            .st41 {
+              fill: url(#linear-gradient12);
+            }
+
+            .st42 {
+              fill: url(#linear-gradient15);
+            }
+
+            .st43 {
+              fill: url(#linear-gradient16);
+            }
+
+            .st44 {
+              fill: url(#linear-gradient11);
+            }
+
+            .st45 {
+              fill: url(#linear-gradient10);
+            }
+
+            .st46 {
+              fill: url(#linear-gradient17);
+            }
+
+            .st47 {
+              fill: url(#linear-gradient14);
+            }
+
+            .st48 {
+              fill: url(#linear-gradient19);
+            }
+
+            .st49 {
+              fill: url(#linear-gradient23);
+            }
+
+            .st50 {
+              fill: url(#linear-gradient22);
+            }
+
+            .st51 {
+              fill: url(#linear-gradient24);
+            }
+
+            .st52 {
+              fill: url(#linear-gradient25);
+            }
+
+            .st53 {
+              fill: url(#linear-gradient21);
+            }
+
+            .st54 {
+              fill: url(#linear-gradient20);
+            }
+
+            .st55 {
+              fill: url(#linear-gradient27);
+            }
+
+            .st56 {
+              fill: url(#linear-gradient26);
+            }
+
+            .st4 {
+              fill: #f15a29;
+            }
+
+            .st57 {
+              fill: #231f20;
+            }
+
+            .st58 {
+              fill: url(#linear-gradient);
+            }
+
+            .st5 {
+              fill: #b1e1ee;
+            }
+
+            .st2 {
+              stroke: #000;
+              stroke-width: .3px;
+            }
+
+            .st59 {
+              fill: #ed1c24;
+            }
+
+            .st60 {
+              clip-path: url(#clippath-17);
+            }
+
+            .st61 {
+              clip-path: url(#clippath-19);
+            }
+
+            .st62 {
+              clip-path: url(#clippath-11);
+            }
+
+            .st63 {
+              clip-path: url(#clippath-16);
+            }
+
+            .st64 {
+              clip-path: url(#clippath-18);
+            }
+
+            .st65 {
+              clip-path: url(#clippath-10);
+            }
+
+            .st66 {
+              clip-path: url(#clippath-15);
+            }
+
+            .st67 {
+              clip-path: url(#clippath-13);
+            }
+
+            .st68 {
+              clip-path: url(#clippath-14);
+            }
+
+            .st69 {
+              clip-path: url(#clippath-12);
+            }
+
+            .st70 {
+              clip-path: url(#clippath-20);
+            }
+
+            .st71 {
+              clip-path: url(#clippath-21);
+            }
+
+            .st72 {
+              clip-path: url(#clippath-22);
+            }
+
+            .st73 {
+              clip-path: url(#clippath-23);
+            }
+
+            .st74 {
+              clip-path: url(#clippath-24);
+            }
+
+            .st75 {
+              clip-path: url(#clippath-25);
+            }
+
+            .st76 {
+              clip-path: url(#clippath-1);
+            }
+
+            .st77 {
+              clip-path: url(#clippath-3);
+            }
+
+            .st78 {
+              clip-path: url(#clippath-4);
+            }
+
+            .st79 {
+              clip-path: url(#clippath-2);
+            }
+
+            .st80 {
+              clip-path: url(#clippath-7);
+            }
+
+            .st81 {
+              clip-path: url(#clippath-6);
+            }
+
+            .st82 {
+              clip-path: url(#clippath-9);
+            }
+
+            .st83 {
+              clip-path: url(#clippath-8);
+            }
+
+            .st84 {
+              clip-path: url(#clippath-5);
+            }
+
+            .st85 {
+              fill: #fff;
+            }
+
+            .st86 {
+              fill: #00aeef;
+              opacity: .32;
+            }
+
+            .st87, .st88 {
+              fill: #f38487;
+            }
+
+            .st88 {
+              opacity: .5;
+            }
+
+            .st6 {
+              fill: #f7d39e;
+            }
+
+            .st89 {
+              fill: #d8cce5;
+              opacity: .1;
+            }
+
+            .st90 {
+              fill: #201f1f;
+            }
+
+            .st91 {
+              clip-path: url(#clippath);
+            }
+
+            .st92 {
+              fill: #ffcf32;
+            }
+          </style>
+          <clipPath id="clippath">
+            <rect class="st0" x="-300.92" y="45.23" width="23.95" height="90.92"/>
+          </clipPath>
+          <clipPath id="clippath-1">
+            <rect class="st0" x="-334.45" y="-90.44" width="379.02" height="268.01"/>
+          </clipPath>
+          <clipPath id="clippath-2">
+            <rect class="st0" x="-334.45" y="-90.44" width="379.02" height="268.01"/>
+          </clipPath>
+          <clipPath id="clippath-3">
+            <rect class="st0" x="-201.34" y="47.57" width="51.43" height="120.65"/>
+          </clipPath>
+          <clipPath id="clippath-4">
+            <rect class="st0" x="-282.22" y="-80.86" width="379.02" height="268.01"/>
+          </clipPath>
+          <clipPath id="clippath-5">
+            <rect class="st0" x="-282.22" y="-80.86" width="379.02" height="268.01"/>
+          </clipPath>
+          <clipPath id="clippath-6">
+            <rect class="st0" x="-262.99" y="50.2" width="46.24" height="121.45"/>
+          </clipPath>
+          <clipPath id="clippath-7">
+            <rect class="st0" x="-406.26" y="-76.56" width="379.02" height="268.01"/>
+          </clipPath>
+          <clipPath id="clippath-8">
+            <rect class="st0" x="-406.26" y="-76.56" width="379.02" height="268.01"/>
+          </clipPath>
+          <clipPath id="clippath-9">
+            <rect class="st0" x="-397.8" y="94.52" width="85.59" height="111.97"/>
+          </clipPath>
+          <clipPath id="clippath-10">
+            <rect class="st0" x="-670.94" y="61.11" width="379.02" height="268.01"/>
+          </clipPath>
+          <clipPath id="clippath-11">
+            <rect class="st0" x="-670.94" y="61.11" width="379.02" height="268.01"/>
+          </clipPath>
+          <clipPath id="clippath-12">
+            <rect class="st0" x="-564.06" y="50.7" width="79.04" height="71.54"/>
+          </clipPath>
+          <clipPath id="clippath-13">
+            <rect class="st0" x="-597.3" y="37.95" width="273.36" height="193.3"/>
+          </clipPath>
+          <clipPath id="clippath-14">
+            <rect class="st0" x="-597.3" y="37.95" width="273.36" height="193.3"/>
+          </clipPath>
+          <clipPath id="clippath-15">
+            <rect class="st0" x="-643.89" y="50.7" width="79.04" height="71.54"/>
+          </clipPath>
+          <clipPath id="clippath-16">
+            <rect class="st0" x="-677.12" y="37.95" width="273.36" height="193.3"/>
+          </clipPath>
+          <clipPath id="clippath-17">
+            <rect class="st0" x="-677.12" y="37.95" width="273.36" height="193.3"/>
+          </clipPath>
+          <clipPath id="clippath-18">
+            <rect class="st0" x="-465.85" y="79.87" width="76.32" height="86.35"/>
+          </clipPath>
+          <clipPath id="clippath-19">
+            <rect class="st0" x="-663.54" y="49.41" width="379.02" height="268.01"/>
+          </clipPath>
+          <clipPath id="clippath-20">
+            <rect class="st0" x="-663.54" y="49.41" width="379.02" height="268.01"/>
+          </clipPath>
+          <clipPath id="clippath-21">
+            <rect class="st0" x="-295.97" y="143.2" width="15.07" height="30.46"/>
+          </clipPath>
+          <clipPath id="clippath-22">
+            <rect class="st0" x="-334.59" y="-83.24" width="379.02" height="268.01"/>
+          </clipPath>
+          <clipPath id="clippath-23">
+            <polygon class="st0" points="110.68 113.74 104.09 103.58 104.09 99.96 105.45 93.9 109.67 88.61 120.42 84.16 130.22 82.61 143.64 83.98 150.29 87.66 156.83 92.35 157.96 99.66 157.24 110.29 148.99 117.83 139.25 122.88 131.88 125.26 124.4 124.9 118.64 123.59 110.68 113.74"/>
+          </clipPath>
+          <clipPath id="clippath-24">
+            <rect class="st0" x="27.16" y="32.46" width="142.24" height="100.58"/>
+          </clipPath>
+          <clipPath id="clippath-25">
+            <rect class="st0" x="27.16" y="32.46" width="142.24" height="100.58"/>
+          </clipPath>
+          <linearGradient id="linear-gradient" x1="420.63" y1="64.19" x2="425.16" y2="66.81" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#fff33b"/>
+            <stop offset=".07" stop-color="#fee62d"/>
+            <stop offset=".2" stop-color="#fdd51b"/>
+            <stop offset=".33" stop-color="#fdca0f"/>
+            <stop offset=".47" stop-color="#fdc70c"/>
+            <stop offset="1" stop-color="#957e29"/>
+          </linearGradient>
+          <linearGradient id="linear-gradient1" x1="443.96" y1="76.67" x2="447.07" y2="78.47" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient2" x1="393.87" y1="62.89" x2="396.34" y2="64.31" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient3" x1="431.22" y1="73.53" x2="434.51" y2="75.43" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient4" x1="378.66" y1="76.04" x2="381.33" y2="77.59" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient5" x1="451.43" y1="78.95" x2="454.29" y2="80.6" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient6" x1="407.49" y1="62.73" x2="410.79" y2="64.63" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient7" x1="470.96" y1="67.97" x2="473.23" y2="69.29" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient8" x1="383.61" y1="67.82" x2="385.22" y2="68.75" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient9" x1="462.34" y1="76.28" x2="464.53" y2="77.54" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient10" x1="384.7" y1="73.18" x2="386.43" y2="74.18" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient11" x1="428.02" y1="63.38" x2="430.14" y2="64.6" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient12" x1="416.13" y1="60.97" x2="417.65" y2="61.85" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient13" x1="403.94" y1="57.59" x2="405.29" y2="58.37" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient14" x1="428.83" y1="69.54" x2="430.21" y2="70.34" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient15" x1="456.65" y1="81.97" x2="457.8" y2="82.63" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient16" x1="436.18" y1="69.55" x2="437.44" y2="70.27" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient17" x1="420.81" y1="58.41" x2="421.76" y2="58.95" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient18" x1="458.36" y1="78.21" x2="459.56" y2="78.9" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient19" x1="425.81" y1="70.69" x2="426.75" y2="71.23" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient20" x1="387.65" y1="64.31" x2="388.9" y2="65.03" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient21" x1="455.05" y1="76.29" x2="456.1" y2="76.9" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient22" x1="399.11" y1="59" x2="399.99" y2="59.51" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient23" x1="403.03" y1="61.73" x2="404.26" y2="62.44" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient24" x1="409.98" y1="55.82" x2="411.15" y2="56.49" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient25" x1="438.3" y1="73.15" x2="439.56" y2="73.87" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient26" x1="448.91" y1="84.21" x2="450.12" y2="84.91" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient27" x1="444.67" y1="83.15" x2="445.71" y2="83.75" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient28" x1="413.58" y1="64.88" x2="414.78" y2="65.57" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient29" x1="469.29" y1="71.64" x2="470.48" y2="72.33" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient30" x1="440.67" y1="79.83" x2="441.81" y2="80.49" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient31" x1="426.61" y1="74.84" x2="427.77" y2="75.51" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient32" x1="420.63" y1="71.47" x2="421.98" y2="72.25" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient33" x1="453.13" y1="84.26" x2="454.14" y2="84.85" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient34" x1="438.35" y1="77.25" x2="439.41" y2="77.86" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient35" x1="434.76" y1="78.86" x2="435.7" y2="79.4" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient36" x1="466.73" y1="72.72" x2="467.61" y2="73.23" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient37" x1="475.41" y1="63.73" x2="476.04" y2="64.1" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient38" x1="449.32" y1="77.09" x2="449.92" y2="77.44" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient39" x1="416.74" y1="68.13" x2="417.32" y2="68.46" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient40" x1="391.33" y1="66.33" x2="391.91" y2="66.67" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient41" x1="474.43" y1="65.58" x2="475.02" y2="65.91" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient42" x1="412.24" y1="60.5" x2="412.81" y2="60.83" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient43" x1="448.07" y1="80.6" x2="448.64" y2="80.93" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient44" x1="376.79" y1="79.68" x2="377.37" y2="80.02" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient45" x1="466.28" y1="76.43" x2="466.85" y2="76.76" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient46" x1="442.54" y1="73.63" x2="443.12" y2="73.97" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient47" x1="381.52" y1="72.17" x2="382.1" y2="72.51" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient48" x1="432.77" y1="70.28" x2="433.36" y2="70.62" xlink:href="#linear-gradient"/>
+          <linearGradient id="linear-gradient49" x1="461.7" y1="80.28" x2="462.28" y2="80.61" xlink:href="#linear-gradient"/>
+        </defs>
+        <path class="st89" d="M-113.53-29.05h-920.84v1361.63H-97.94V-29.05H-113.53ZM-129.12-28.05h14.59v13.02h-14.59V-28.05ZM-114.53-1h-14.59v-13.03h14.59V-1ZM-114.53,13.03h-14.59V0h14.59V13.03ZM-114.53,27.05h-14.59v-13.02h14.59V27.05ZM-114.53,41.08h-14.59v-13.03h14.59V41.08ZM-114.53,55.11h-14.59v-13.03h14.59V55.11ZM-114.53,69.14h-14.59v-13.03h14.59V69.14ZM-114.53,83.16h-14.59v-13.02h14.59V83.16ZM-114.53,97.19h-14.59v-13.03h14.59V97.19ZM-114.53,111.22h-14.59v-13.03h14.59V111.22ZM-114.53,125.24h-14.59v-13.02h14.59V125.24ZM-114.53,139.27h-14.59v-13.03h14.59V139.27ZM-114.53,153.3h-14.59v-13.03h14.59V153.3ZM-114.53,167.33h-14.59v-13.03h14.59V167.33ZM-114.53,181.35h-14.59v-13.02h14.59V181.35ZM-114.53,195.38h-14.59v-13.03h14.59V195.38ZM-114.53,209.41h-14.59v-13.03h14.59V209.41ZM-114.53,223.43h-14.59v-13.02h14.59V223.43ZM-114.53,237.46h-14.59v-13.03h14.59V237.46ZM-114.53,251.49h-14.59v-13.03h14.59V251.49ZM-114.53,265.52h-14.59v-13.03h14.59V265.52ZM-114.53,279.54h-14.59v-13.02h14.59V279.54ZM-114.53,293.57h-14.59v-13.03h14.59V293.57ZM-114.53,307.6h-14.59v-13.03h14.59V307.6ZM-114.53,321.62h-14.59v-13.02h14.59V321.62ZM-114.53,335.65h-14.59v-13.03h14.59V335.65ZM-114.53,349.68h-14.59v-13.03h14.59V349.68ZM-114.53,363.71h-14.59v-13.03h14.59V363.71ZM-114.53,377.73h-14.59v-13.02h14.59V377.73ZM-114.53,391.76h-14.59v-13.03h14.59V391.76ZM-114.53,405.79h-14.59v-13.03h14.59V405.79ZM-114.53,419.81h-14.59v-13.02h14.59V419.81ZM-114.53,433.84h-14.59v-13.03h14.59V433.84ZM-114.53,447.87h-14.59v-13.03h14.59V447.87ZM-114.53,461.9h-14.59v-13.03h14.59V461.9ZM-114.53,475.92h-14.59v-13.02h14.59V475.92ZM-114.53,489.95h-14.59v-13.03h14.59V489.95ZM-114.53,503.98h-14.59v-13.03h14.59V503.98ZM-114.53,518h-14.59v-13.02h14.59V518ZM-114.53,532.03h-14.59v-13.03h14.59V532.03ZM-114.53,546.06h-14.59v-13.03h14.59V546.06ZM-114.53,560.08h-14.59v-13.02h14.59V560.08ZM-114.53,574.11h-14.59v-13.03h14.59V574.11ZM-114.53,588.14h-14.59v-13.03h14.59V588.14ZM-114.53,602.17h-14.59v-13.03h14.59V602.17ZM-114.53,616.19h-14.59v-13.02h14.59V616.19ZM-114.53,630.22h-14.59v-13.03h14.59V630.22ZM-114.53,644.25h-14.59v-13.03h14.59V644.25ZM-114.53,658.27h-14.59v-13.02h14.59V658.27ZM-114.53,672.3h-14.59v-13.03h14.59V672.3ZM-114.53,686.33h-14.59v-13.03h14.59V686.33ZM-114.53,700.36h-14.59v-13.03h14.59V700.36ZM-114.53,714.38h-14.59v-13.02h14.59V714.38ZM-114.53,728.41h-14.59v-13.03h14.59V728.41ZM-114.53,742.44h-14.59v-13.03h14.59V742.44ZM-114.53,756.46h-14.59v-13.02h14.59V756.46ZM-114.53,770.49h-14.59v-13.03h14.59V770.49ZM-114.53,784.52h-14.59v-13.03h14.59V784.52ZM-114.53,798.55h-14.59v-13.03h14.59V798.55ZM-114.53,812.57h-14.59v-13.02h14.59V812.57ZM-114.53,826.6h-14.59v-13.03h14.59V826.6ZM-114.53,840.63h-14.59v-13.03h14.59V840.63ZM-114.53,854.65h-14.59v-13.02h14.59V854.65ZM-114.53,868.68h-14.59v-13.03h14.59V868.68ZM-114.53,882.71h-14.59v-13.03h14.59V882.71ZM-114.53,896.74h-14.59v-13.03h14.59V896.74ZM-114.53,910.76h-14.59v-13.02h14.59V910.76ZM-114.53,924.79h-14.59v-13.03h14.59V924.79ZM-114.53,938.82h-14.59v-13.03h14.59V938.82ZM-114.53,952.84h-14.59v-13.02h14.59V952.84ZM-114.53,966.87h-14.59v-13.03h14.59V966.87ZM-114.53,980.9h-14.59v-13.03h14.59V980.9ZM-114.53,994.92h-14.59v-13.02h14.59V994.92ZM-114.53,1008.95h-14.59v-13.03h14.59V1008.95ZM-114.53,1022.98h-14.59v-13.03h14.59V1022.98ZM-114.53,1037.01h-14.59v-13.03h14.59V1037.01ZM-114.53,1051.03h-14.59v-13.02h14.59V1051.03ZM-114.53,1065.06h-14.59v-13.03h14.59V1065.06ZM-114.53,1079.09h-14.59v-13.03h14.59V1079.09ZM-114.53,1093.12h-14.59v-13.03h14.59V1093.12ZM-114.53,1107.14h-14.59v-13.02h14.59V1107.14ZM-114.53,1121.17h-14.59v-13.03h14.59V1121.17ZM-114.53,1135.2h-14.59v-13.03h14.59V1135.2ZM-114.53,1149.22h-14.59v-13.02h14.59V1149.22ZM-114.53,1163.25h-14.59v-13.03h14.59V1163.25ZM-114.53,1177.28h-14.59v-13.03h14.59V1177.28ZM-114.53,1191.3h-14.59v-13.02h14.59V1191.3ZM-114.53,1205.33h-14.59v-13.03h14.59V1205.33ZM-114.53,1219.36h-14.59v-13.03h14.59V1219.36ZM-114.53,1233.39h-14.59v-13.03h14.59V1233.39ZM-114.53,1247.41h-14.59v-13.02h14.59V1247.41ZM-114.53,1261.44h-14.59v-13.03h14.59V1261.44ZM-114.53,1275.47h-14.59v-13.03h14.59V1275.47ZM-114.53,1289.49h-14.59v-13.02h14.59V1289.49ZM-114.53,1303.52h-14.59v-13.03h14.59V1303.52ZM-114.53,1317.55h-14.59v-13.03h14.59V1317.55ZM-1017.78,1304.52h14.59v13.03h-14.59V1304.52ZM-1017.78,1290.49h14.59v13.03h-14.59V1290.49ZM-1017.78,1276.47h14.59v13.02h-14.59V1276.47ZM-1017.78,1262.44h14.59v13.03h-14.59V1262.44ZM-1017.78,1248.41h14.59v13.03h-14.59V1248.41ZM-1017.78,1234.39h14.59v13.02h-14.59V1234.39ZM-1017.78,1220.36h14.59v13.03h-14.59V1220.36ZM-1017.78,1206.33h14.59v13.03h-14.59V1206.33ZM-1017.78,1192.3h14.59v13.03h-14.59V1192.3ZM-1017.78,1178.28h14.59v13.02h-14.59V1178.28ZM-1017.78,1164.25h14.59v13.03h-14.59V1164.25ZM-1017.78,1150.22h14.59v13.03h-14.59V1150.22ZM-1017.78,1136.2h14.59v13.02h-14.59V1136.2ZM-1017.78,1122.17h14.59v13.03h-14.59V1122.17ZM-1017.78,1108.14h14.59v13.03h-14.59V1108.14ZM-1017.78,1094.12h14.59v13.02h-14.59V1094.12ZM-1017.78,1080.09h14.59v13.03h-14.59V1080.09ZM-1017.78,1066.06h14.59v13.03h-14.59V1066.06ZM-1017.78,1052.03h14.59v13.03h-14.59V1052.03ZM-1017.78,1038.01h14.59v13.02h-14.59V1038.01ZM-1017.78,1023.98h14.59v13.03h-14.59V1023.98ZM-1017.78,1009.95h14.59v13.03h-14.59V1009.95ZM-1017.78,995.92h14.59v13.03h-14.59V995.92ZM-1017.78,981.9h14.59v13.02h-14.59V981.9ZM-1017.78,967.87h14.59v13.03h-14.59V967.87ZM-1017.78,953.84h14.59v13.03h-14.59V953.84ZM-1017.78,939.82h14.59v13.02h-14.59V939.82ZM-1017.78,925.79h14.59v13.03h-14.59V925.79ZM-1017.78,911.76h14.59v13.03h-14.59V911.76ZM-1017.78,897.74h14.59v13.02h-14.59V897.74ZM-1017.78,883.71h14.59v13.03h-14.59V883.71ZM-1017.78,869.68h14.59v13.03h-14.59V869.68ZM-1017.78,855.65h14.59v13.03h-14.59V855.65ZM-1017.78,841.63h14.59v13.02h-14.59V841.63ZM-1017.78,827.6h14.59v13.03h-14.59V827.6ZM-1017.78,813.57h14.59v13.03h-14.59V813.57ZM-1017.78,799.55h14.59v13.02h-14.59V799.55ZM-1017.78,785.52h14.59v13.03h-14.59V785.52ZM-1017.78,771.49h14.59v13.03h-14.59V771.49ZM-1017.78,757.46h14.59v13.03h-14.59V757.46ZM-1017.78,743.44h14.59v13.02h-14.59V743.44ZM-1017.78,729.41h14.59v13.03h-14.59V729.41ZM-1017.78,715.38h14.59v13.03h-14.59V715.38ZM-1017.78,701.36h14.59v13.02h-14.59V701.36ZM-1017.78,687.33h14.59v13.03h-14.59V687.33ZM-1017.78,673.3h14.59v13.03h-14.59V673.3ZM-1017.78,659.27h14.59v13.03h-14.59V659.27ZM-1017.78,645.25h14.59v13.02h-14.59V645.25ZM-1017.78,631.22h14.59v13.03h-14.59V631.22ZM-1017.78,617.19h14.59v13.03h-14.59V617.19ZM-1017.78,603.17h14.59v13.02h-14.59V603.17ZM-1017.78,589.14h14.59v13.03h-14.59V589.14ZM-1017.78,575.11h14.59v13.03h-14.59V575.11ZM-1017.78,561.08h14.59v13.03h-14.59V561.08ZM-1017.78,547.06h14.59v13.02h-14.59V547.06ZM-1017.78,533.03h14.59v13.03h-14.59V533.03ZM-1017.78,519h14.59v13.03h-14.59V519ZM-1017.78,504.98h14.59v13.02h-14.59V504.98ZM-1017.78,490.95h14.59v13.03h-14.59V490.95ZM-1017.78,476.92h14.59v13.03h-14.59V476.92ZM-1017.78,462.9h14.59v13.02h-14.59V462.9ZM-1017.78,448.87h14.59v13.03h-14.59V448.87ZM-1017.78,434.84h14.59v13.03h-14.59V434.84ZM-1017.78,420.81h14.59v13.03h-14.59V420.81ZM-1017.78,406.79h14.59v13.02h-14.59V406.79ZM-1017.78,392.76h14.59v13.03h-14.59V392.76ZM-1017.78,378.73h14.59v13.03h-14.59V378.73ZM-1017.78,364.71h14.59v13.02h-14.59V364.71ZM-1017.78,350.68h14.59v13.03h-14.59V350.68ZM-1017.78,336.65h14.59v13.03h-14.59V336.65ZM-1017.78,322.62h14.59v13.03h-14.59V322.62ZM-1017.78,308.6h14.59v13.02h-14.59V308.6ZM-1017.78,294.57h14.59v13.03h-14.59V294.57ZM-1017.78,280.54h14.59v13.03h-14.59V280.54ZM-1017.78,266.52h14.59v13.02h-14.59V266.52ZM-1017.78,252.49h14.59v13.03h-14.59V252.49ZM-1017.78,238.46h14.59v13.03h-14.59V238.46ZM-1017.78,224.43h14.59v13.03h-14.59V224.43ZM-1017.78,210.41h14.59v13.02h-14.59V210.41ZM-1017.78,196.38h14.59v13.03h-14.59V196.38ZM-1017.78,182.35h14.59v13.03h-14.59V182.35ZM-1017.78,168.33h14.59v13.02h-14.59V168.33ZM-1017.78,154.3h14.59v13.03h-14.59V154.3ZM-1017.78,140.27h14.59v13.03h-14.59V140.27ZM-1017.78,126.24h14.59v13.03h-14.59V126.24ZM-1017.78,112.22h14.59v13.02h-14.59V112.22ZM-1017.78,98.19h14.59v13.03h-14.59V98.19ZM-1017.78,84.16h14.59v13.03h-14.59V84.16ZM-1017.78,70.14h14.59v13.02h-14.59V70.14ZM-1017.78,56.11h14.59v13.03h-14.59V56.11ZM-1017.78,42.08h14.59v13.03h-14.59V42.08ZM-1017.78,28.05h14.59v13.03h-14.59V28.05ZM-1017.78,14.03h14.59v13.02h-14.59V14.03ZM-1017.78,0h14.59v13.03h-14.59V0ZM-1017.78-14.03h14.59V-1h-14.59V-14.03ZM-130.12-1h-14.59v-13.03h14.59V-1ZM-130.12,13.03h-14.59V0h14.59V13.03ZM-130.12,27.05h-14.59v-13.02h14.59V27.05ZM-130.12,41.08h-14.59v-13.03h14.59V41.08ZM-130.12,55.11h-14.59v-13.03h14.59V55.11ZM-130.12,69.14h-14.59v-13.03h14.59V69.14ZM-130.12,83.16h-14.59v-13.02h14.59V83.16ZM-130.12,97.19h-14.59v-13.03h14.59V97.19ZM-130.12,111.22h-14.59v-13.03h14.59V111.22ZM-130.12,125.24h-14.59v-13.02h14.59V125.24ZM-130.12,139.27h-14.59v-13.03h14.59V139.27ZM-130.12,153.3h-14.59v-13.03h14.59V153.3ZM-130.12,167.33h-14.59v-13.03h14.59V167.33ZM-130.12,181.35h-14.59v-13.02h14.59V181.35ZM-130.12,195.38h-14.59v-13.03h14.59V195.38ZM-130.12,209.41h-14.59v-13.03h14.59V209.41ZM-130.12,223.43h-14.59v-13.02h14.59V223.43ZM-130.12,237.46h-14.59v-13.03h14.59V237.46ZM-130.12,251.49h-14.59v-13.03h14.59V251.49ZM-130.12,265.52h-14.59v-13.03h14.59V265.52ZM-130.12,279.54h-14.59v-13.02h14.59V279.54ZM-130.12,293.57h-14.59v-13.03h14.59V293.57ZM-130.12,307.6h-14.59v-13.03h14.59V307.6ZM-130.12,321.62h-14.59v-13.02h14.59V321.62ZM-130.12,335.65h-14.59v-13.03h14.59V335.65ZM-130.12,349.68h-14.59v-13.03h14.59V349.68ZM-130.12,363.71h-14.59v-13.03h14.59V363.71ZM-130.12,377.73h-14.59v-13.02h14.59V377.73ZM-130.12,391.76h-14.59v-13.03h14.59V391.76ZM-130.12,405.79h-14.59v-13.03h14.59V405.79ZM-130.12,419.81h-14.59v-13.02h14.59V419.81ZM-130.12,433.84h-14.59v-13.03h14.59V433.84ZM-130.12,447.87h-14.59v-13.03h14.59V447.87ZM-130.12,461.9h-14.59v-13.03h14.59V461.9ZM-130.12,475.92h-14.59v-13.02h14.59V475.92ZM-130.12,489.95h-14.59v-13.03h14.59V489.95ZM-130.12,503.98h-14.59v-13.03h14.59V503.98ZM-130.12,518h-14.59v-13.02h14.59V518ZM-130.12,532.03h-14.59v-13.03h14.59V532.03ZM-130.12,546.06h-14.59v-13.03h14.59V546.06ZM-130.12,560.08h-14.59v-13.02h14.59V560.08ZM-130.12,574.11h-14.59v-13.03h14.59V574.11ZM-130.12,588.14h-14.59v-13.03h14.59V588.14ZM-130.12,602.17h-14.59v-13.03h14.59V602.17ZM-130.12,616.19h-14.59v-13.02h14.59V616.19ZM-130.12,630.22h-14.59v-13.03h14.59V630.22ZM-130.12,644.25h-14.59v-13.03h14.59V644.25ZM-130.12,658.27h-14.59v-13.02h14.59V658.27ZM-130.12,672.3h-14.59v-13.03h14.59V672.3ZM-130.12,686.33h-14.59v-13.03h14.59V686.33ZM-130.12,700.36h-14.59v-13.03h14.59V700.36ZM-130.12,714.38h-14.59v-13.02h14.59V714.38ZM-130.12,728.41h-14.59v-13.03h14.59V728.41ZM-130.12,742.44h-14.59v-13.03h14.59V742.44ZM-130.12,756.46h-14.59v-13.02h14.59V756.46ZM-130.12,770.49h-14.59v-13.03h14.59V770.49ZM-130.12,784.52h-14.59v-13.03h14.59V784.52ZM-130.12,798.55h-14.59v-13.03h14.59V798.55ZM-130.12,812.57h-14.59v-13.02h14.59V812.57ZM-130.12,826.6h-14.59v-13.03h14.59V826.6ZM-130.12,840.63h-14.59v-13.03h14.59V840.63ZM-130.12,854.65h-14.59v-13.02h14.59V854.65ZM-130.12,868.68h-14.59v-13.03h14.59V868.68ZM-130.12,882.71h-14.59v-13.03h14.59V882.71ZM-130.12,896.74h-14.59v-13.03h14.59V896.74ZM-130.12,910.76h-14.59v-13.02h14.59V910.76ZM-130.12,924.79h-14.59v-13.03h14.59V924.79ZM-130.12,938.82h-14.59v-13.03h14.59V938.82ZM-130.12,952.84h-14.59v-13.02h14.59V952.84ZM-130.12,966.87h-14.59v-13.03h14.59V966.87ZM-130.12,980.9h-14.59v-13.03h14.59V980.9ZM-130.12,994.92h-14.59v-13.02h14.59V994.92ZM-130.12,1008.95h-14.59v-13.03h14.59V1008.95ZM-130.12,1022.98h-14.59v-13.03h14.59V1022.98ZM-130.12,1037.01h-14.59v-13.03h14.59V1037.01ZM-130.12,1051.03h-14.59v-13.02h14.59V1051.03ZM-130.12,1065.06h-14.59v-13.03h14.59V1065.06ZM-130.12,1079.09h-14.59v-13.03h14.59V1079.09ZM-130.12,1093.12h-14.59v-13.03h14.59V1093.12ZM-130.12,1107.14h-14.59v-13.02h14.59V1107.14ZM-130.12,1121.17h-14.59v-13.03h14.59V1121.17ZM-130.12,1135.2h-14.59v-13.03h14.59V1135.2ZM-130.12,1149.22h-14.59v-13.02h14.59V1149.22ZM-130.12,1163.25h-14.59v-13.03h14.59V1163.25ZM-130.12,1177.28h-14.59v-13.03h14.59V1177.28ZM-130.12,1191.3h-14.59v-13.02h14.59V1191.3ZM-130.12,1205.33h-14.59v-13.03h14.59V1205.33ZM-130.12,1219.36h-14.59v-13.03h14.59V1219.36ZM-130.12,1233.39h-14.59v-13.03h14.59V1233.39ZM-130.12,1247.41h-14.59v-13.02h14.59V1247.41ZM-130.12,1261.44h-14.59v-13.03h14.59V1261.44ZM-130.12,1275.47h-14.59v-13.03h14.59V1275.47ZM-130.12,1289.49h-14.59v-13.02h14.59V1289.49ZM-130.12,1303.52h-14.59v-13.03h14.59V1303.52ZM-1002.19,1290.49h14.59v13.03h-14.59V1290.49ZM-1002.19,1276.47h14.59v13.02h-14.59V1276.47ZM-1002.19,1262.44h14.59v13.03h-14.59V1262.44ZM-1002.19,1248.41h14.59v13.03h-14.59V1248.41ZM-1002.19,1234.39h14.59v13.02h-14.59V1234.39ZM-1002.19,1220.36h14.59v13.03h-14.59V1220.36ZM-1002.19,1206.33h14.59v13.03h-14.59V1206.33ZM-1002.19,1192.3h14.59v13.03h-14.59V1192.3ZM-1002.19,1178.28h14.59v13.02h-14.59V1178.28ZM-1002.19,1164.25h14.59v13.03h-14.59V1164.25ZM-1002.19,1150.22h14.59v13.03h-14.59V1150.22ZM-1002.19,1136.2h14.59v13.02h-14.59V1136.2ZM-1002.19,1122.17h14.59v13.03h-14.59V1122.17ZM-1002.19,1108.14h14.59v13.03h-14.59V1108.14ZM-1002.19,1094.12h14.59v13.02h-14.59V1094.12ZM-1002.19,1080.09h14.59v13.03h-14.59V1080.09ZM-1002.19,1066.06h14.59v13.03h-14.59V1066.06ZM-1002.19,1052.03h14.59v13.03h-14.59V1052.03ZM-1002.19,1038.01h14.59v13.02h-14.59V1038.01ZM-1002.19,1023.98h14.59v13.03h-14.59V1023.98ZM-1002.19,1009.95h14.59v13.03h-14.59V1009.95ZM-1002.19,995.92h14.59v13.03h-14.59V995.92ZM-1002.19,981.9h14.59v13.02h-14.59V981.9ZM-1002.19,967.87h14.59v13.03h-14.59V967.87ZM-1002.19,953.84h14.59v13.03h-14.59V953.84ZM-1002.19,939.82h14.59v13.02h-14.59V939.82ZM-1002.19,925.79h14.59v13.03h-14.59V925.79ZM-1002.19,911.76h14.59v13.03h-14.59V911.76ZM-1002.19,897.74h14.59v13.02h-14.59V897.74ZM-1002.19,883.71h14.59v13.03h-14.59V883.71ZM-1002.19,869.68h14.59v13.03h-14.59V869.68ZM-1002.19,855.65h14.59v13.03h-14.59V855.65ZM-1002.19,841.63h14.59v13.02h-14.59V841.63ZM-1002.19,827.6h14.59v13.03h-14.59V827.6ZM-1002.19,813.57h14.59v13.03h-14.59V813.57ZM-1002.19,799.55h14.59v13.02h-14.59V799.55ZM-1002.19,785.52h14.59v13.03h-14.59V785.52ZM-1002.19,771.49h14.59v13.03h-14.59V771.49ZM-1002.19,757.46h14.59v13.03h-14.59V757.46ZM-1002.19,743.44h14.59v13.02h-14.59V743.44ZM-1002.19,729.41h14.59v13.03h-14.59V729.41ZM-1002.19,715.38h14.59v13.03h-14.59V715.38ZM-1002.19,701.36h14.59v13.02h-14.59V701.36ZM-1002.19,687.33h14.59v13.03h-14.59V687.33ZM-1002.19,673.3h14.59v13.03h-14.59V673.3ZM-1002.19,659.27h14.59v13.03h-14.59V659.27ZM-1002.19,645.25h14.59v13.02h-14.59V645.25ZM-1002.19,631.22h14.59v13.03h-14.59V631.22ZM-1002.19,617.19h14.59v13.03h-14.59V617.19ZM-1002.19,603.17h14.59v13.02h-14.59V603.17ZM-1002.19,589.14h14.59v13.03h-14.59V589.14ZM-1002.19,575.11h14.59v13.03h-14.59V575.11ZM-1002.19,561.08h14.59v13.03h-14.59V561.08ZM-1002.19,547.06h14.59v13.02h-14.59V547.06ZM-1002.19,533.03h14.59v13.03h-14.59V533.03ZM-1002.19,519h14.59v13.03h-14.59V519ZM-1002.19,504.98h14.59v13.02h-14.59V504.98ZM-1002.19,490.95h14.59v13.03h-14.59V490.95ZM-1002.19,476.92h14.59v13.03h-14.59V476.92ZM-1002.19,462.9h14.59v13.02h-14.59V462.9ZM-1002.19,448.87h14.59v13.03h-14.59V448.87ZM-1002.19,434.84h14.59v13.03h-14.59V434.84ZM-1002.19,420.81h14.59v13.03h-14.59V420.81ZM-1002.19,406.79h14.59v13.02h-14.59V406.79ZM-1002.19,392.76h14.59v13.03h-14.59V392.76ZM-1002.19,378.73h14.59v13.03h-14.59V378.73ZM-1002.19,364.71h14.59v13.02h-14.59V364.71ZM-1002.19,350.68h14.59v13.03h-14.59V350.68ZM-1002.19,336.65h14.59v13.03h-14.59V336.65ZM-1002.19,322.62h14.59v13.03h-14.59V322.62ZM-1002.19,308.6h14.59v13.02h-14.59V308.6ZM-1002.19,294.57h14.59v13.03h-14.59V294.57ZM-1002.19,280.54h14.59v13.03h-14.59V280.54ZM-1002.19,266.52h14.59v13.02h-14.59V266.52ZM-1002.19,252.49h14.59v13.03h-14.59V252.49ZM-1002.19,238.46h14.59v13.03h-14.59V238.46ZM-1002.19,224.43h14.59v13.03h-14.59V224.43ZM-1002.19,210.41h14.59v13.02h-14.59V210.41ZM-1002.19,196.38h14.59v13.03h-14.59V196.38ZM-1002.19,182.35h14.59v13.03h-14.59V182.35ZM-1002.19,168.33h14.59v13.02h-14.59V168.33ZM-1002.19,154.3h14.59v13.03h-14.59V154.3ZM-1002.19,140.27h14.59v13.03h-14.59V140.27ZM-1002.19,126.24h14.59v13.03h-14.59V126.24ZM-1002.19,112.22h14.59v13.02h-14.59V112.22ZM-1002.19,98.19h14.59v13.03h-14.59V98.19ZM-1002.19,84.16h14.59v13.03h-14.59V84.16ZM-1002.19,70.14h14.59v13.02h-14.59V70.14ZM-1002.19,56.11h14.59v13.03h-14.59V56.11ZM-1002.19,42.08h14.59v13.03h-14.59V42.08ZM-1002.19,28.05h14.59v13.03h-14.59V28.05ZM-1002.19,14.03h14.59v13.02h-14.59V14.03ZM-1002.19,0h14.59v13.03h-14.59V0ZM-145.71,13.03h-14.59V0h14.59V13.03ZM-145.71,27.05h-14.59v-13.02h14.59V27.05ZM-145.71,41.08h-14.59v-13.03h14.59V41.08ZM-145.71,55.11h-14.59v-13.03h14.59V55.11ZM-145.71,69.14h-14.59v-13.03h14.59V69.14ZM-145.71,83.16h-14.59v-13.02h14.59V83.16ZM-145.71,97.19h-14.59v-13.03h14.59V97.19ZM-145.71,111.22h-14.59v-13.03h14.59V111.22ZM-145.71,125.24h-14.59v-13.02h14.59V125.24ZM-145.71,139.27h-14.59v-13.03h14.59V139.27ZM-145.71,153.3h-14.59v-13.03h14.59V153.3ZM-145.71,167.33h-14.59v-13.03h14.59V167.33ZM-145.71,181.35h-14.59v-13.02h14.59V181.35ZM-145.71,195.38h-14.59v-13.03h14.59V195.38ZM-145.71,209.41h-14.59v-13.03h14.59V209.41ZM-145.71,223.43h-14.59v-13.02h14.59V223.43ZM-145.71,237.46h-14.59v-13.03h14.59V237.46ZM-145.71,251.49h-14.59v-13.03h14.59V251.49ZM-145.71,265.52h-14.59v-13.03h14.59V265.52ZM-145.71,279.54h-14.59v-13.02h14.59V279.54ZM-145.71,293.57h-14.59v-13.03h14.59V293.57ZM-145.71,307.6h-14.59v-13.03h14.59V307.6ZM-145.71,321.62h-14.59v-13.02h14.59V321.62ZM-145.71,335.65h-14.59v-13.03h14.59V335.65ZM-145.71,349.68h-14.59v-13.03h14.59V349.68ZM-145.71,363.71h-14.59v-13.03h14.59V363.71ZM-145.71,377.73h-14.59v-13.02h14.59V377.73ZM-145.71,391.76h-14.59v-13.03h14.59V391.76ZM-145.71,405.79h-14.59v-13.03h14.59V405.79ZM-145.71,419.81h-14.59v-13.02h14.59V419.81ZM-145.71,433.84h-14.59v-13.03h14.59V433.84ZM-145.71,447.87h-14.59v-13.03h14.59V447.87ZM-145.71,461.9h-14.59v-13.03h14.59V461.9ZM-145.71,475.92h-14.59v-13.02h14.59V475.92ZM-145.71,489.95h-14.59v-13.03h14.59V489.95ZM-145.71,503.98h-14.59v-13.03h14.59V503.98ZM-145.71,518h-14.59v-13.02h14.59V518ZM-145.71,532.03h-14.59v-13.03h14.59V532.03ZM-145.71,546.06h-14.59v-13.03h14.59V546.06ZM-145.71,560.08h-14.59v-13.02h14.59V560.08ZM-145.71,574.11h-14.59v-13.03h14.59V574.11ZM-145.71,588.14h-14.59v-13.03h14.59V588.14ZM-145.71,602.17h-14.59v-13.03h14.59V602.17ZM-145.71,616.19h-14.59v-13.02h14.59V616.19ZM-145.71,630.22h-14.59v-13.03h14.59V630.22ZM-145.71,644.25h-14.59v-13.03h14.59V644.25ZM-145.71,658.27h-14.59v-13.02h14.59V658.27ZM-145.71,672.3h-14.59v-13.03h14.59V672.3ZM-145.71,686.33h-14.59v-13.03h14.59V686.33ZM-145.71,700.36h-14.59v-13.03h14.59V700.36ZM-145.71,714.38h-14.59v-13.02h14.59V714.38ZM-145.71,728.41h-14.59v-13.03h14.59V728.41ZM-145.71,742.44h-14.59v-13.03h14.59V742.44ZM-145.71,756.46h-14.59v-13.02h14.59V756.46ZM-145.71,770.49h-14.59v-13.03h14.59V770.49ZM-145.71,784.52h-14.59v-13.03h14.59V784.52ZM-145.71,798.55h-14.59v-13.03h14.59V798.55ZM-145.71,812.57h-14.59v-13.02h14.59V812.57ZM-145.71,826.6h-14.59v-13.03h14.59V826.6ZM-145.71,840.63h-14.59v-13.03h14.59V840.63ZM-145.71,854.65h-14.59v-13.02h14.59V854.65ZM-145.71,868.68h-14.59v-13.03h14.59V868.68ZM-145.71,882.71h-14.59v-13.03h14.59V882.71ZM-145.71,896.74h-14.59v-13.03h14.59V896.74ZM-145.71,910.76h-14.59v-13.02h14.59V910.76ZM-145.71,924.79h-14.59v-13.03h14.59V924.79ZM-145.71,938.82h-14.59v-13.03h14.59V938.82ZM-145.71,952.84h-14.59v-13.02h14.59V952.84ZM-145.71,966.87h-14.59v-13.03h14.59V966.87ZM-145.71,980.9h-14.59v-13.03h14.59V980.9ZM-145.71,994.92h-14.59v-13.02h14.59V994.92ZM-145.71,1008.95h-14.59v-13.03h14.59V1008.95ZM-145.71,1022.98h-14.59v-13.03h14.59V1022.98ZM-145.71,1037.01h-14.59v-13.03h14.59V1037.01ZM-145.71,1051.03h-14.59v-13.02h14.59V1051.03ZM-145.71,1065.06h-14.59v-13.03h14.59V1065.06ZM-145.71,1079.09h-14.59v-13.03h14.59V1079.09ZM-145.71,1093.12h-14.59v-13.03h14.59V1093.12ZM-145.71,1107.14h-14.59v-13.02h14.59V1107.14ZM-145.71,1121.17h-14.59v-13.03h14.59V1121.17ZM-145.71,1135.2h-14.59v-13.03h14.59V1135.2ZM-145.71,1149.22h-14.59v-13.02h14.59V1149.22ZM-145.71,1163.25h-14.59v-13.03h14.59V1163.25ZM-145.71,1177.28h-14.59v-13.03h14.59V1177.28ZM-145.71,1191.3h-14.59v-13.02h14.59V1191.3ZM-145.71,1205.33h-14.59v-13.03h14.59V1205.33ZM-145.71,1219.36h-14.59v-13.03h14.59V1219.36ZM-145.71,1233.39h-14.59v-13.03h14.59V1233.39ZM-145.71,1247.41h-14.59v-13.02h14.59V1247.41ZM-145.71,1261.44h-14.59v-13.03h14.59V1261.44ZM-145.71,1275.47h-14.59v-13.03h14.59V1275.47ZM-145.71,1289.49h-14.59v-13.02h14.59V1289.49ZM-986.6,1276.47h14.59v13.02h-14.59V1276.47ZM-986.6,1262.44h14.59v13.03h-14.59V1262.44ZM-986.6,1248.41h14.59v13.03h-14.59V1248.41ZM-986.6,1234.39h14.59v13.02h-14.59V1234.39ZM-986.6,1220.36h14.59v13.03h-14.59V1220.36ZM-986.6,1206.33h14.59v13.03h-14.59V1206.33ZM-986.6,1192.3h14.59v13.03h-14.59V1192.3ZM-986.6,1178.28h14.59v13.02h-14.59V1178.28ZM-986.6,1164.25h14.59v13.03h-14.59V1164.25ZM-986.6,1150.22h14.59v13.03h-14.59V1150.22ZM-986.6,1136.2h14.59v13.02h-14.59V1136.2ZM-986.6,1122.17h14.59v13.03h-14.59V1122.17ZM-986.6,1108.14h14.59v13.03h-14.59V1108.14ZM-986.6,1094.12h14.59v13.02h-14.59V1094.12ZM-986.6,1080.09h14.59v13.03h-14.59V1080.09ZM-986.6,1066.06h14.59v13.03h-14.59V1066.06ZM-986.6,1052.03h14.59v13.03h-14.59V1052.03ZM-986.6,1038.01h14.59v13.02h-14.59V1038.01ZM-986.6,1023.98h14.59v13.03h-14.59V1023.98ZM-986.6,1009.95h14.59v13.03h-14.59V1009.95ZM-986.6,995.92h14.59v13.03h-14.59V995.92ZM-986.6,981.9h14.59v13.02h-14.59V981.9ZM-986.6,967.87h14.59v13.03h-14.59V967.87ZM-986.6,953.84h14.59v13.03h-14.59V953.84ZM-986.6,939.82h14.59v13.02h-14.59V939.82ZM-986.6,925.79h14.59v13.03h-14.59V925.79ZM-986.6,911.76h14.59v13.03h-14.59V911.76ZM-986.6,897.74h14.59v13.02h-14.59V897.74ZM-986.6,883.71h14.59v13.03h-14.59V883.71ZM-986.6,869.68h14.59v13.03h-14.59V869.68ZM-986.6,855.65h14.59v13.03h-14.59V855.65ZM-986.6,841.63h14.59v13.02h-14.59V841.63ZM-986.6,827.6h14.59v13.03h-14.59V827.6ZM-986.6,813.57h14.59v13.03h-14.59V813.57ZM-986.6,799.55h14.59v13.02h-14.59V799.55ZM-986.6,785.52h14.59v13.03h-14.59V785.52ZM-986.6,771.49h14.59v13.03h-14.59V771.49ZM-986.6,757.46h14.59v13.03h-14.59V757.46ZM-986.6,743.44h14.59v13.02h-14.59V743.44ZM-986.6,729.41h14.59v13.03h-14.59V729.41ZM-986.6,715.38h14.59v13.03h-14.59V715.38ZM-986.6,701.36h14.59v13.02h-14.59V701.36ZM-986.6,687.33h14.59v13.03h-14.59V687.33ZM-986.6,673.3h14.59v13.03h-14.59V673.3ZM-986.6,659.27h14.59v13.03h-14.59V659.27ZM-986.6,645.25h14.59v13.02h-14.59V645.25ZM-986.6,631.22h14.59v13.03h-14.59V631.22ZM-986.6,617.19h14.59v13.03h-14.59V617.19ZM-986.6,603.17h14.59v13.02h-14.59V603.17ZM-986.6,589.14h14.59v13.03h-14.59V589.14ZM-986.6,575.11h14.59v13.03h-14.59V575.11ZM-986.6,561.08h14.59v13.03h-14.59V561.08ZM-986.6,547.06h14.59v13.02h-14.59V547.06ZM-986.6,533.03h14.59v13.03h-14.59V533.03ZM-986.6,519h14.59v13.03h-14.59V519ZM-986.6,504.98h14.59v13.02h-14.59V504.98ZM-986.6,490.95h14.59v13.03h-14.59V490.95ZM-986.6,476.92h14.59v13.03h-14.59V476.92ZM-986.6,462.9h14.59v13.02h-14.59V462.9ZM-986.6,448.87h14.59v13.03h-14.59V448.87ZM-986.6,434.84h14.59v13.03h-14.59V434.84ZM-986.6,420.81h14.59v13.03h-14.59V420.81ZM-986.6,406.79h14.59v13.02h-14.59V406.79ZM-986.6,392.76h14.59v13.03h-14.59V392.76ZM-986.6,378.73h14.59v13.03h-14.59V378.73ZM-986.6,364.71h14.59v13.02h-14.59V364.71ZM-986.6,350.68h14.59v13.03h-14.59V350.68ZM-986.6,336.65h14.59v13.03h-14.59V336.65ZM-986.6,322.62h14.59v13.03h-14.59V322.62ZM-986.6,308.6h14.59v13.02h-14.59V308.6ZM-986.6,294.57h14.59v13.03h-14.59V294.57ZM-986.6,280.54h14.59v13.03h-14.59V280.54ZM-986.6,266.52h14.59v13.02h-14.59V266.52ZM-986.6,252.49h14.59v13.03h-14.59V252.49ZM-986.6,238.46h14.59v13.03h-14.59V238.46ZM-986.6,224.43h14.59v13.03h-14.59V224.43ZM-986.6,210.41h14.59v13.02h-14.59V210.41ZM-986.6,196.38h14.59v13.03h-14.59V196.38ZM-986.6,182.35h14.59v13.03h-14.59V182.35ZM-986.6,168.33h14.59v13.02h-14.59V168.33ZM-986.6,154.3h14.59v13.03h-14.59V154.3ZM-986.6,140.27h14.59v13.03h-14.59V140.27ZM-986.6,126.24h14.59v13.03h-14.59V126.24ZM-986.6,112.22h14.59v13.02h-14.59V112.22ZM-986.6,98.19h14.59v13.03h-14.59V98.19ZM-986.6,84.16h14.59v13.03h-14.59V84.16ZM-986.6,70.14h14.59v13.02h-14.59V70.14ZM-986.6,56.11h14.59v13.03h-14.59V56.11ZM-986.6,42.08h14.59v13.03h-14.59V42.08ZM-986.6,28.05h14.59v13.03h-14.59V28.05ZM-986.6,14.03h14.59v13.02h-14.59V14.03ZM-161.3,27.05h-14.59v-13.02h14.59V27.05ZM-161.3,41.08h-14.59v-13.03h14.59V41.08ZM-161.3,55.11h-14.59v-13.03h14.59V55.11ZM-161.3,69.14h-14.59v-13.03h14.59V69.14ZM-161.3,83.16h-14.59v-13.02h14.59V83.16ZM-161.3,97.19h-14.59v-13.03h14.59V97.19ZM-161.3,111.22h-14.59v-13.03h14.59V111.22ZM-161.3,125.24h-14.59v-13.02h14.59V125.24ZM-161.3,139.27h-14.59v-13.03h14.59V139.27ZM-161.3,153.3h-14.59v-13.03h14.59V153.3ZM-161.3,167.33h-14.59v-13.03h14.59V167.33ZM-161.3,181.35h-14.59v-13.02h14.59V181.35ZM-161.3,195.38h-14.59v-13.03h14.59V195.38ZM-161.3,209.41h-14.59v-13.03h14.59V209.41ZM-161.3,223.43h-14.59v-13.02h14.59V223.43ZM-161.3,237.46h-14.59v-13.03h14.59V237.46ZM-161.3,251.49h-14.59v-13.03h14.59V251.49ZM-161.3,265.52h-14.59v-13.03h14.59V265.52ZM-161.3,279.54h-14.59v-13.02h14.59V279.54ZM-161.3,293.57h-14.59v-13.03h14.59V293.57ZM-161.3,307.6h-14.59v-13.03h14.59V307.6ZM-161.3,321.62h-14.59v-13.02h14.59V321.62ZM-161.3,335.65h-14.59v-13.03h14.59V335.65ZM-161.3,349.68h-14.59v-13.03h14.59V349.68ZM-161.3,363.71h-14.59v-13.03h14.59V363.71ZM-161.3,377.73h-14.59v-13.02h14.59V377.73ZM-161.3,391.76h-14.59v-13.03h14.59V391.76ZM-161.3,405.79h-14.59v-13.03h14.59V405.79ZM-161.3,419.81h-14.59v-13.02h14.59V419.81ZM-161.3,433.84h-14.59v-13.03h14.59V433.84ZM-161.3,447.87h-14.59v-13.03h14.59V447.87ZM-161.3,461.9h-14.59v-13.03h14.59V461.9ZM-161.3,475.92h-14.59v-13.02h14.59V475.92ZM-161.3,489.95h-14.59v-13.03h14.59V489.95ZM-161.3,503.98h-14.59v-13.03h14.59V503.98ZM-161.3,518h-14.59v-13.02h14.59V518ZM-161.3,532.03h-14.59v-13.03h14.59V532.03ZM-161.3,546.06h-14.59v-13.03h14.59V546.06ZM-161.3,560.08h-14.59v-13.02h14.59V560.08ZM-161.3,574.11h-14.59v-13.03h14.59V574.11ZM-161.3,588.14h-14.59v-13.03h14.59V588.14ZM-161.3,602.17h-14.59v-13.03h14.59V602.17ZM-161.3,616.19h-14.59v-13.02h14.59V616.19ZM-161.3,630.22h-14.59v-13.03h14.59V630.22ZM-161.3,644.25h-14.59v-13.03h14.59V644.25ZM-161.3,658.27h-14.59v-13.02h14.59V658.27ZM-161.3,672.3h-14.59v-13.03h14.59V672.3ZM-161.3,686.33h-14.59v-13.03h14.59V686.33ZM-161.3,700.36h-14.59v-13.03h14.59V700.36ZM-161.3,714.38h-14.59v-13.02h14.59V714.38ZM-161.3,728.41h-14.59v-13.03h14.59V728.41ZM-161.3,742.44h-14.59v-13.03h14.59V742.44ZM-161.3,756.46h-14.59v-13.02h14.59V756.46ZM-161.3,770.49h-14.59v-13.03h14.59V770.49ZM-161.3,784.52h-14.59v-13.03h14.59V784.52ZM-161.3,798.55h-14.59v-13.03h14.59V798.55ZM-161.3,812.57h-14.59v-13.02h14.59V812.57ZM-161.3,826.6h-14.59v-13.03h14.59V826.6ZM-161.3,840.63h-14.59v-13.03h14.59V840.63ZM-161.3,854.65h-14.59v-13.02h14.59V854.65ZM-161.3,868.68h-14.59v-13.03h14.59V868.68ZM-161.3,882.71h-14.59v-13.03h14.59V882.71ZM-161.3,896.74h-14.59v-13.03h14.59V896.74ZM-161.3,910.76h-14.59v-13.02h14.59V910.76ZM-161.3,924.79h-14.59v-13.03h14.59V924.79ZM-161.3,938.82h-14.59v-13.03h14.59V938.82ZM-161.3,952.84h-14.59v-13.02h14.59V952.84ZM-161.3,966.87h-14.59v-13.03h14.59V966.87ZM-161.3,980.9h-14.59v-13.03h14.59V980.9ZM-161.3,994.92h-14.59v-13.02h14.59V994.92ZM-161.3,1008.95h-14.59v-13.03h14.59V1008.95ZM-161.3,1022.98h-14.59v-13.03h14.59V1022.98ZM-161.3,1037.01h-14.59v-13.03h14.59V1037.01ZM-161.3,1051.03h-14.59v-13.02h14.59V1051.03ZM-161.3,1065.06h-14.59v-13.03h14.59V1065.06ZM-161.3,1079.09h-14.59v-13.03h14.59V1079.09ZM-161.3,1093.12h-14.59v-13.03h14.59V1093.12ZM-161.3,1107.14h-14.59v-13.02h14.59V1107.14ZM-161.3,1121.17h-14.59v-13.03h14.59V1121.17ZM-161.3,1135.2h-14.59v-13.03h14.59V1135.2ZM-161.3,1149.22h-14.59v-13.02h14.59V1149.22ZM-161.3,1163.25h-14.59v-13.03h14.59V1163.25ZM-161.3,1177.28h-14.59v-13.03h14.59V1177.28ZM-161.3,1191.3h-14.59v-13.02h14.59V1191.3ZM-161.3,1205.33h-14.59v-13.03h14.59V1205.33ZM-161.3,1219.36h-14.59v-13.03h14.59V1219.36ZM-161.3,1233.39h-14.59v-13.03h14.59V1233.39ZM-161.3,1247.41h-14.59v-13.02h14.59V1247.41ZM-161.3,1261.44h-14.59v-13.03h14.59V1261.44ZM-161.3,1275.47h-14.59v-13.03h14.59V1275.47ZM-971.01,1262.44h14.59v13.03h-14.59V1262.44ZM-971.01,1248.41h14.59v13.03h-14.59V1248.41ZM-971.01,1234.39h14.59v13.02h-14.59V1234.39ZM-971.01,1220.36h14.59v13.03h-14.59V1220.36ZM-971.01,1206.33h14.59v13.03h-14.59V1206.33ZM-971.01,1192.3h14.59v13.03h-14.59V1192.3ZM-971.01,1178.28h14.59v13.02h-14.59V1178.28ZM-971.01,1164.25h14.59v13.03h-14.59V1164.25ZM-971.01,1150.22h14.59v13.03h-14.59V1150.22ZM-971.01,1136.2h14.59v13.02h-14.59V1136.2ZM-971.01,1122.17h14.59v13.03h-14.59V1122.17ZM-971.01,1108.14h14.59v13.03h-14.59V1108.14ZM-971.01,1094.12h14.59v13.02h-14.59V1094.12ZM-971.01,1080.09h14.59v13.03h-14.59V1080.09ZM-971.01,1066.06h14.59v13.03h-14.59V1066.06ZM-971.01,1052.03h14.59v13.03h-14.59V1052.03ZM-971.01,1038.01h14.59v13.02h-14.59V1038.01ZM-971.01,1023.98h14.59v13.03h-14.59V1023.98ZM-971.01,1009.95h14.59v13.03h-14.59V1009.95ZM-971.01,995.92h14.59v13.03h-14.59V995.92ZM-971.01,981.9h14.59v13.02h-14.59V981.9ZM-971.01,967.87h14.59v13.03h-14.59V967.87ZM-971.01,953.84h14.59v13.03h-14.59V953.84ZM-971.01,939.82h14.59v13.02h-14.59V939.82ZM-971.01,925.79h14.59v13.03h-14.59V925.79ZM-971.01,911.76h14.59v13.03h-14.59V911.76ZM-971.01,897.74h14.59v13.02h-14.59V897.74ZM-971.01,883.71h14.59v13.03h-14.59V883.71ZM-971.01,869.68h14.59v13.03h-14.59V869.68ZM-971.01,855.65h14.59v13.03h-14.59V855.65ZM-971.01,841.63h14.59v13.02h-14.59V841.63ZM-971.01,827.6h14.59v13.03h-14.59V827.6ZM-971.01,813.57h14.59v13.03h-14.59V813.57ZM-971.01,799.55h14.59v13.02h-14.59V799.55ZM-971.01,785.52h14.59v13.03h-14.59V785.52ZM-971.01,771.49h14.59v13.03h-14.59V771.49ZM-971.01,757.46h14.59v13.03h-14.59V757.46ZM-971.01,743.44h14.59v13.02h-14.59V743.44ZM-971.01,729.41h14.59v13.03h-14.59V729.41ZM-971.01,715.38h14.59v13.03h-14.59V715.38ZM-971.01,701.36h14.59v13.02h-14.59V701.36ZM-971.01,687.33h14.59v13.03h-14.59V687.33ZM-971.01,673.3h14.59v13.03h-14.59V673.3ZM-971.01,659.27h14.59v13.03h-14.59V659.27ZM-971.01,645.25h14.59v13.02h-14.59V645.25ZM-971.01,631.22h14.59v13.03h-14.59V631.22ZM-971.01,617.19h14.59v13.03h-14.59V617.19ZM-971.01,603.17h14.59v13.02h-14.59V603.17ZM-971.01,589.14h14.59v13.03h-14.59V589.14ZM-971.01,575.11h14.59v13.03h-14.59V575.11ZM-971.01,561.08h14.59v13.03h-14.59V561.08ZM-971.01,547.06h14.59v13.02h-14.59V547.06ZM-971.01,533.03h14.59v13.03h-14.59V533.03ZM-971.01,519h14.59v13.03h-14.59V519ZM-971.01,504.98h14.59v13.02h-14.59V504.98ZM-971.01,490.95h14.59v13.03h-14.59V490.95ZM-971.01,476.92h14.59v13.03h-14.59V476.92ZM-971.01,462.9h14.59v13.02h-14.59V462.9ZM-971.01,448.87h14.59v13.03h-14.59V448.87ZM-971.01,434.84h14.59v13.03h-14.59V434.84ZM-971.01,420.81h14.59v13.03h-14.59V420.81ZM-971.01,406.79h14.59v13.02h-14.59V406.79ZM-971.01,392.76h14.59v13.03h-14.59V392.76ZM-971.01,378.73h14.59v13.03h-14.59V378.73ZM-971.01,364.71h14.59v13.02h-14.59V364.71ZM-971.01,350.68h14.59v13.03h-14.59V350.68ZM-971.01,336.65h14.59v13.03h-14.59V336.65ZM-971.01,322.62h14.59v13.03h-14.59V322.62ZM-971.01,308.6h14.59v13.02h-14.59V308.6ZM-971.01,294.57h14.59v13.03h-14.59V294.57ZM-971.01,280.54h14.59v13.03h-14.59V280.54ZM-971.01,266.52h14.59v13.02h-14.59V266.52ZM-971.01,252.49h14.59v13.03h-14.59V252.49ZM-971.01,238.46h14.59v13.03h-14.59V238.46ZM-971.01,224.43h14.59v13.03h-14.59V224.43ZM-971.01,210.41h14.59v13.02h-14.59V210.41ZM-971.01,196.38h14.59v13.03h-14.59V196.38ZM-971.01,182.35h14.59v13.03h-14.59V182.35ZM-971.01,168.33h14.59v13.02h-14.59V168.33ZM-971.01,154.3h14.59v13.03h-14.59V154.3ZM-971.01,140.27h14.59v13.03h-14.59V140.27ZM-971.01,126.24h14.59v13.03h-14.59V126.24ZM-971.01,112.22h14.59v13.02h-14.59V112.22ZM-971.01,98.19h14.59v13.03h-14.59V98.19ZM-971.01,84.16h14.59v13.03h-14.59V84.16ZM-971.01,70.14h14.59v13.02h-14.59V70.14ZM-971.01,56.11h14.59v13.03h-14.59V56.11ZM-971.01,42.08h14.59v13.03h-14.59V42.08ZM-971.01,28.05h14.59v13.03h-14.59V28.05ZM-176.89,41.08h-14.59v-13.03h14.59V41.08ZM-176.89,55.11h-14.59v-13.03h14.59V55.11ZM-176.89,69.14h-14.59v-13.03h14.59V69.14ZM-176.89,83.16h-14.59v-13.02h14.59V83.16ZM-176.89,97.19h-14.59v-13.03h14.59V97.19ZM-176.89,111.22h-14.59v-13.03h14.59V111.22ZM-176.89,125.24h-14.59v-13.02h14.59V125.24ZM-176.89,139.27h-14.59v-13.03h14.59V139.27ZM-176.89,153.3h-14.59v-13.03h14.59V153.3ZM-176.89,167.33h-14.59v-13.03h14.59V167.33ZM-176.89,181.35h-14.59v-13.02h14.59V181.35ZM-176.89,195.38h-14.59v-13.03h14.59V195.38ZM-176.89,209.41h-14.59v-13.03h14.59V209.41ZM-176.89,223.43h-14.59v-13.02h14.59V223.43ZM-176.89,237.46h-14.59v-13.03h14.59V237.46ZM-176.89,251.49h-14.59v-13.03h14.59V251.49ZM-176.89,265.52h-14.59v-13.03h14.59V265.52ZM-176.89,279.54h-14.59v-13.02h14.59V279.54ZM-176.89,293.57h-14.59v-13.03h14.59V293.57ZM-176.89,307.6h-14.59v-13.03h14.59V307.6ZM-176.89,321.62h-14.59v-13.02h14.59V321.62ZM-176.89,335.65h-14.59v-13.03h14.59V335.65ZM-176.89,349.68h-14.59v-13.03h14.59V349.68ZM-176.89,363.71h-14.59v-13.03h14.59V363.71ZM-176.89,377.73h-14.59v-13.02h14.59V377.73ZM-176.89,391.76h-14.59v-13.03h14.59V391.76ZM-176.89,405.79h-14.59v-13.03h14.59V405.79ZM-176.89,419.81h-14.59v-13.02h14.59V419.81ZM-176.89,433.84h-14.59v-13.03h14.59V433.84ZM-176.89,447.87h-14.59v-13.03h14.59V447.87ZM-176.89,461.9h-14.59v-13.03h14.59V461.9ZM-176.89,475.92h-14.59v-13.02h14.59V475.92ZM-176.89,489.95h-14.59v-13.03h14.59V489.95ZM-176.89,503.98h-14.59v-13.03h14.59V503.98ZM-176.89,518h-14.59v-13.02h14.59V518ZM-176.89,532.03h-14.59v-13.03h14.59V532.03ZM-176.89,546.06h-14.59v-13.03h14.59V546.06ZM-176.89,560.08h-14.59v-13.02h14.59V560.08ZM-176.89,574.11h-14.59v-13.03h14.59V574.11ZM-176.89,588.14h-14.59v-13.03h14.59V588.14ZM-176.89,602.17h-14.59v-13.03h14.59V602.17ZM-176.89,616.19h-14.59v-13.02h14.59V616.19ZM-176.89,630.22h-14.59v-13.03h14.59V630.22ZM-176.89,644.25h-14.59v-13.03h14.59V644.25ZM-176.89,658.27h-14.59v-13.02h14.59V658.27ZM-176.89,672.3h-14.59v-13.03h14.59V672.3ZM-176.89,686.33h-14.59v-13.03h14.59V686.33ZM-176.89,700.36h-14.59v-13.03h14.59V700.36ZM-176.89,714.38h-14.59v-13.02h14.59V714.38ZM-176.89,728.41h-14.59v-13.03h14.59V728.41ZM-176.89,742.44h-14.59v-13.03h14.59V742.44ZM-176.89,756.46h-14.59v-13.02h14.59V756.46ZM-176.89,770.49h-14.59v-13.03h14.59V770.49ZM-176.89,784.52h-14.59v-13.03h14.59V784.52ZM-176.89,798.55h-14.59v-13.03h14.59V798.55ZM-176.89,812.57h-14.59v-13.02h14.59V812.57ZM-176.89,826.6h-14.59v-13.03h14.59V826.6ZM-176.89,840.63h-14.59v-13.03h14.59V840.63ZM-176.89,854.65h-14.59v-13.02h14.59V854.65ZM-176.89,868.68h-14.59v-13.03h14.59V868.68ZM-176.89,882.71h-14.59v-13.03h14.59V882.71ZM-176.89,896.74h-14.59v-13.03h14.59V896.74ZM-176.89,910.76h-14.59v-13.02h14.59V910.76ZM-176.89,924.79h-14.59v-13.03h14.59V924.79ZM-176.89,938.82h-14.59v-13.03h14.59V938.82ZM-176.89,952.84h-14.59v-13.02h14.59V952.84ZM-176.89,966.87h-14.59v-13.03h14.59V966.87ZM-176.89,980.9h-14.59v-13.03h14.59V980.9ZM-176.89,994.92h-14.59v-13.02h14.59V994.92ZM-176.89,1008.95h-14.59v-13.03h14.59V1008.95ZM-176.89,1022.98h-14.59v-13.03h14.59V1022.98ZM-176.89,1037.01h-14.59v-13.03h14.59V1037.01ZM-176.89,1051.03h-14.59v-13.02h14.59V1051.03ZM-176.89,1065.06h-14.59v-13.03h14.59V1065.06ZM-176.89,1079.09h-14.59v-13.03h14.59V1079.09ZM-176.89,1093.12h-14.59v-13.03h14.59V1093.12ZM-176.89,1107.14h-14.59v-13.02h14.59V1107.14ZM-176.89,1121.17h-14.59v-13.03h14.59V1121.17ZM-176.89,1135.2h-14.59v-13.03h14.59V1135.2ZM-176.89,1149.22h-14.59v-13.02h14.59V1149.22ZM-176.89,1163.25h-14.59v-13.03h14.59V1163.25ZM-176.89,1177.28h-14.59v-13.03h14.59V1177.28ZM-176.89,1191.3h-14.59v-13.02h14.59V1191.3ZM-176.89,1205.33h-14.59v-13.03h14.59V1205.33ZM-176.89,1219.36h-14.59v-13.03h14.59V1219.36ZM-176.89,1233.39h-14.59v-13.03h14.59V1233.39ZM-176.89,1247.41h-14.59v-13.02h14.59V1247.41ZM-176.89,1261.44h-14.59v-13.03h14.59V1261.44ZM-955.42,1248.41h14.59v13.03h-14.59V1248.41ZM-955.42,1234.39h14.59v13.02h-14.59V1234.39ZM-955.42,1220.36h14.59v13.03h-14.59V1220.36ZM-955.42,1206.33h14.59v13.03h-14.59V1206.33ZM-955.42,1192.3h14.59v13.03h-14.59V1192.3ZM-955.42,1178.28h14.59v13.02h-14.59V1178.28ZM-955.42,1164.25h14.59v13.03h-14.59V1164.25ZM-955.42,1150.22h14.59v13.03h-14.59V1150.22ZM-955.42,1136.2h14.59v13.02h-14.59V1136.2ZM-955.42,1122.17h14.59v13.03h-14.59V1122.17ZM-955.42,1108.14h14.59v13.03h-14.59V1108.14ZM-955.42,1094.12h14.59v13.02h-14.59V1094.12ZM-955.42,1080.09h14.59v13.03h-14.59V1080.09ZM-955.42,1066.06h14.59v13.03h-14.59V1066.06ZM-955.42,1052.03h14.59v13.03h-14.59V1052.03ZM-955.42,1038.01h14.59v13.02h-14.59V1038.01ZM-955.42,1023.98h14.59v13.03h-14.59V1023.98ZM-955.42,1009.95h14.59v13.03h-14.59V1009.95ZM-955.42,995.92h14.59v13.03h-14.59V995.92ZM-955.42,981.9h14.59v13.02h-14.59V981.9ZM-955.42,967.87h14.59v13.03h-14.59V967.87ZM-955.42,953.84h14.59v13.03h-14.59V953.84ZM-955.42,939.82h14.59v13.02h-14.59V939.82ZM-955.42,925.79h14.59v13.03h-14.59V925.79ZM-955.42,911.76h14.59v13.03h-14.59V911.76ZM-955.42,897.74h14.59v13.02h-14.59V897.74ZM-955.42,883.71h14.59v13.03h-14.59V883.71ZM-955.42,869.68h14.59v13.03h-14.59V869.68ZM-955.42,855.65h14.59v13.03h-14.59V855.65ZM-955.42,841.63h14.59v13.02h-14.59V841.63ZM-955.42,827.6h14.59v13.03h-14.59V827.6ZM-955.42,813.57h14.59v13.03h-14.59V813.57ZM-955.42,799.55h14.59v13.02h-14.59V799.55ZM-955.42,785.52h14.59v13.03h-14.59V785.52ZM-955.42,771.49h14.59v13.03h-14.59V771.49ZM-955.42,757.46h14.59v13.03h-14.59V757.46ZM-955.42,743.44h14.59v13.02h-14.59V743.44ZM-955.42,729.41h14.59v13.03h-14.59V729.41ZM-955.42,715.38h14.59v13.03h-14.59V715.38ZM-955.42,701.36h14.59v13.02h-14.59V701.36ZM-955.42,687.33h14.59v13.03h-14.59V687.33ZM-955.42,673.3h14.59v13.03h-14.59V673.3ZM-955.42,659.27h14.59v13.03h-14.59V659.27ZM-955.42,645.25h14.59v13.02h-14.59V645.25ZM-955.42,631.22h14.59v13.03h-14.59V631.22ZM-955.42,617.19h14.59v13.03h-14.59V617.19ZM-955.42,603.17h14.59v13.02h-14.59V603.17ZM-955.42,589.14h14.59v13.03h-14.59V589.14ZM-955.42,575.11h14.59v13.03h-14.59V575.11ZM-955.42,561.08h14.59v13.03h-14.59V561.08ZM-955.42,547.06h14.59v13.02h-14.59V547.06ZM-955.42,533.03h14.59v13.03h-14.59V533.03ZM-955.42,519h14.59v13.03h-14.59V519ZM-955.42,504.98h14.59v13.02h-14.59V504.98ZM-955.42,490.95h14.59v13.03h-14.59V490.95ZM-955.42,476.92h14.59v13.03h-14.59V476.92ZM-955.42,462.9h14.59v13.02h-14.59V462.9ZM-955.42,448.87h14.59v13.03h-14.59V448.87ZM-955.42,434.84h14.59v13.03h-14.59V434.84ZM-955.42,420.81h14.59v13.03h-14.59V420.81ZM-955.42,406.79h14.59v13.02h-14.59V406.79ZM-955.42,392.76h14.59v13.03h-14.59V392.76ZM-955.42,378.73h14.59v13.03h-14.59V378.73ZM-955.42,364.71h14.59v13.02h-14.59V364.71ZM-955.42,350.68h14.59v13.03h-14.59V350.68ZM-955.42,336.65h14.59v13.03h-14.59V336.65ZM-955.42,322.62h14.59v13.03h-14.59V322.62ZM-955.42,308.6h14.59v13.02h-14.59V308.6ZM-955.42,294.57h14.59v13.03h-14.59V294.57ZM-955.42,280.54h14.59v13.03h-14.59V280.54ZM-955.42,266.52h14.59v13.02h-14.59V266.52ZM-955.42,252.49h14.59v13.03h-14.59V252.49ZM-955.42,238.46h14.59v13.03h-14.59V238.46ZM-955.42,224.43h14.59v13.03h-14.59V224.43ZM-955.42,210.41h14.59v13.02h-14.59V210.41ZM-955.42,196.38h14.59v13.03h-14.59V196.38ZM-955.42,182.35h14.59v13.03h-14.59V182.35ZM-955.42,168.33h14.59v13.02h-14.59V168.33ZM-955.42,154.3h14.59v13.03h-14.59V154.3ZM-955.42,140.27h14.59v13.03h-14.59V140.27ZM-955.42,126.24h14.59v13.03h-14.59V126.24ZM-955.42,112.22h14.59v13.02h-14.59V112.22ZM-955.42,98.19h14.59v13.03h-14.59V98.19ZM-955.42,84.16h14.59v13.03h-14.59V84.16ZM-955.42,70.14h14.59v13.02h-14.59V70.14ZM-955.42,56.11h14.59v13.03h-14.59V56.11ZM-955.42,42.08h14.59v13.03h-14.59V42.08ZM-192.48,55.11h-14.59v-13.03h14.59V55.11ZM-192.48,69.14h-14.59v-13.03h14.59V69.14ZM-192.48,83.16h-14.59v-13.02h14.59V83.16ZM-192.48,97.19h-14.59v-13.03h14.59V97.19ZM-192.48,111.22h-14.59v-13.03h14.59V111.22ZM-192.48,125.24h-14.59v-13.02h14.59V125.24ZM-192.48,139.27h-14.59v-13.03h14.59V139.27ZM-192.48,153.3h-14.59v-13.03h14.59V153.3ZM-192.48,167.33h-14.59v-13.03h14.59V167.33ZM-192.48,181.35h-14.59v-13.02h14.59V181.35ZM-192.48,195.38h-14.59v-13.03h14.59V195.38ZM-192.48,209.41h-14.59v-13.03h14.59V209.41ZM-192.48,223.43h-14.59v-13.02h14.59V223.43ZM-192.48,237.46h-14.59v-13.03h14.59V237.46ZM-192.48,251.49h-14.59v-13.03h14.59V251.49ZM-192.48,265.52h-14.59v-13.03h14.59V265.52ZM-192.48,279.54h-14.59v-13.02h14.59V279.54ZM-192.48,293.57h-14.59v-13.03h14.59V293.57ZM-192.48,307.6h-14.59v-13.03h14.59V307.6ZM-192.48,321.62h-14.59v-13.02h14.59V321.62ZM-192.48,335.65h-14.59v-13.03h14.59V335.65ZM-192.48,349.68h-14.59v-13.03h14.59V349.68ZM-192.48,363.71h-14.59v-13.03h14.59V363.71ZM-192.48,377.73h-14.59v-13.02h14.59V377.73ZM-192.48,391.76h-14.59v-13.03h14.59V391.76ZM-192.48,405.79h-14.59v-13.03h14.59V405.79ZM-192.48,419.81h-14.59v-13.02h14.59V419.81ZM-192.48,433.84h-14.59v-13.03h14.59V433.84ZM-192.48,447.87h-14.59v-13.03h14.59V447.87ZM-192.48,461.9h-14.59v-13.03h14.59V461.9ZM-192.48,475.92h-14.59v-13.02h14.59V475.92ZM-192.48,489.95h-14.59v-13.03h14.59V489.95ZM-192.48,503.98h-14.59v-13.03h14.59V503.98ZM-192.48,518h-14.59v-13.02h14.59V518ZM-192.48,532.03h-14.59v-13.03h14.59V532.03ZM-192.48,546.06h-14.59v-13.03h14.59V546.06ZM-192.48,560.08h-14.59v-13.02h14.59V560.08ZM-192.48,574.11h-14.59v-13.03h14.59V574.11ZM-192.48,588.14h-14.59v-13.03h14.59V588.14ZM-192.48,602.17h-14.59v-13.03h14.59V602.17ZM-192.48,616.19h-14.59v-13.02h14.59V616.19ZM-192.48,630.22h-14.59v-13.03h14.59V630.22ZM-192.48,644.25h-14.59v-13.03h14.59V644.25ZM-192.48,658.27h-14.59v-13.02h14.59V658.27ZM-192.48,672.3h-14.59v-13.03h14.59V672.3ZM-192.48,686.33h-14.59v-13.03h14.59V686.33ZM-192.48,700.36h-14.59v-13.03h14.59V700.36ZM-192.48,714.38h-14.59v-13.02h14.59V714.38ZM-192.48,728.41h-14.59v-13.03h14.59V728.41ZM-192.48,742.44h-14.59v-13.03h14.59V742.44ZM-192.48,756.46h-14.59v-13.02h14.59V756.46ZM-192.48,770.49h-14.59v-13.03h14.59V770.49ZM-192.48,784.52h-14.59v-13.03h14.59V784.52ZM-192.48,798.55h-14.59v-13.03h14.59V798.55ZM-192.48,812.57h-14.59v-13.02h14.59V812.57ZM-192.48,826.6h-14.59v-13.03h14.59V826.6ZM-192.48,840.63h-14.59v-13.03h14.59V840.63ZM-192.48,854.65h-14.59v-13.02h14.59V854.65ZM-192.48,868.68h-14.59v-13.03h14.59V868.68ZM-192.48,882.71h-14.59v-13.03h14.59V882.71ZM-192.48,896.74h-14.59v-13.03h14.59V896.74ZM-192.48,910.76h-14.59v-13.02h14.59V910.76ZM-192.48,924.79h-14.59v-13.03h14.59V924.79ZM-192.48,938.82h-14.59v-13.03h14.59V938.82ZM-192.48,952.84h-14.59v-13.02h14.59V952.84ZM-192.48,966.87h-14.59v-13.03h14.59V966.87ZM-192.48,980.9h-14.59v-13.03h14.59V980.9ZM-192.48,994.92h-14.59v-13.02h14.59V994.92ZM-192.48,1008.95h-14.59v-13.03h14.59V1008.95ZM-192.48,1022.98h-14.59v-13.03h14.59V1022.98ZM-192.48,1037.01h-14.59v-13.03h14.59V1037.01ZM-192.48,1051.03h-14.59v-13.02h14.59V1051.03ZM-192.48,1065.06h-14.59v-13.03h14.59V1065.06ZM-192.48,1079.09h-14.59v-13.03h14.59V1079.09ZM-192.48,1093.12h-14.59v-13.03h14.59V1093.12ZM-192.48,1107.14h-14.59v-13.02h14.59V1107.14ZM-192.48,1121.17h-14.59v-13.03h14.59V1121.17ZM-192.48,1135.2h-14.59v-13.03h14.59V1135.2ZM-192.48,1149.22h-14.59v-13.02h14.59V1149.22ZM-192.48,1163.25h-14.59v-13.03h14.59V1163.25ZM-192.48,1177.28h-14.59v-13.03h14.59V1177.28ZM-192.48,1191.3h-14.59v-13.02h14.59V1191.3ZM-192.48,1205.33h-14.59v-13.03h14.59V1205.33ZM-192.48,1219.36h-14.59v-13.03h14.59V1219.36ZM-192.48,1233.39h-14.59v-13.03h14.59V1233.39ZM-192.48,1247.41h-14.59v-13.02h14.59V1247.41ZM-939.83,1234.39h14.59v13.02h-14.59V1234.39ZM-939.83,1220.36h14.59v13.03h-14.59V1220.36ZM-939.83,1206.33h14.59v13.03h-14.59V1206.33ZM-939.83,1192.3h14.59v13.03h-14.59V1192.3ZM-939.83,1178.28h14.59v13.02h-14.59V1178.28ZM-939.83,1164.25h14.59v13.03h-14.59V1164.25ZM-939.83,1150.22h14.59v13.03h-14.59V1150.22ZM-939.83,1136.2h14.59v13.02h-14.59V1136.2ZM-939.83,1122.17h14.59v13.03h-14.59V1122.17ZM-939.83,1108.14h14.59v13.03h-14.59V1108.14ZM-939.83,1094.12h14.59v13.02h-14.59V1094.12ZM-939.83,1080.09h14.59v13.03h-14.59V1080.09ZM-939.83,1066.06h14.59v13.03h-14.59V1066.06ZM-939.83,1052.03h14.59v13.03h-14.59V1052.03ZM-939.83,1038.01h14.59v13.02h-14.59V1038.01ZM-939.83,1023.98h14.59v13.03h-14.59V1023.98ZM-939.83,1009.95h14.59v13.03h-14.59V1009.95ZM-939.83,995.92h14.59v13.03h-14.59V995.92ZM-939.83,981.9h14.59v13.02h-14.59V981.9ZM-939.83,967
