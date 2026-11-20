@@ -354,3 +354,225 @@
 
   <main class="stage-wrap">
     <!-- MODO 2: TARJETAS PASO A PASO (1/8 a 8/8) -->
+    <section id="cardsView" class="cards-view active" aria-label="Vista paso a paso">
+      <div class="progress-bar-wrap" aria-hidden="true">
+        <div id="progressFill" class="progress-bar-fill"></div>
+      </div>
+
+      <div id="bookStage" class="book-stage" aria-label="Instructivo interactivo en formato libro">
+        <div class="page active" data-page="1">
+          <img src="./panel-1.svg" alt="Panel 1 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-1.svg</strong> en la carpeta del instructivo.</div>
+        </div>
+        <div class="page" data-page="2">
+          <img src="./panel-2.svg" alt="Panel 2 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-2.svg</strong> en la carpeta del instructivo.</div>
+        </div>
+        <div class="page" data-page="3">
+          <img src="./panel-3.svg" alt="Panel 3 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-3.svg</strong> en la carpeta del instructivo.</div>
+        </div>
+        <div class="page" data-page="4">
+          <img src="./panel-4.svg" alt="Panel 4 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-4.svg</strong> en la carpeta del instructivo.</div>
+        </div>
+        <div class="page" data-page="5">
+          <img src="./panel-5.svg" alt="Panel 5 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-5.svg</strong> en la carpeta del instructivo.</div>
+        </div>
+        <div class="page" data-page="6">
+          <img src="./panel-6.svg" alt="Panel 6 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-6.svg</strong> en la carpeta del instructivo.</div>
+        </div>
+        <div class="page" data-page="7">
+          <img src="./panel-7.svg" alt="Panel 7 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-7.svg</strong> en la carpeta del instructivo.</div>
+        </div>
+        <div class="page" data-page="8">
+          <img src="./panel-8.svg" alt="Panel 8 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-8.svg</strong> en la carpeta del instructivo.</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="prevBtn" type="button" disabled>Anterior</button>
+        <span class="page-indicator" id="pageIndicator">1 / 8</span>
+        <button id="nextBtn" type="button">Siguiente</button>
+      </div>
+    </section>
+
+    <!-- MODO 1: FRISO / ACORDEÓN -->
+    <section id="frisoView" class="friso-view" aria-label="Vista friso o acordeón">
+      <div class="sub-controls">
+        <button id="sideFrontBtn" type="button" class="active-mode">Frente (Paneles 1–4)</button>
+        <button id="sideBackBtn" type="button" class="secondary-btn">Reverso (Paneles 5–8)</button>
+        <button id="foldToggleBtn" type="button" class="secondary-btn">Plegar Acordeón</button>
+      </div>
+
+      <div id="frisoTrack" class="friso-track"></div>
+    </section>
+  </main>
+
+  <div id="zoomModal" class="zoom-modal" role="dialog" aria-modal="true" aria-label="Vista ampliada del panel">
+    <div class="zoom-box">
+      <div class="zoom-header">
+        <strong id="zoomTitle">Panel</strong>
+        <button id="closeZoomBtn" type="button">Cerrar</button>
+      </div>
+      <img id="zoomImg" src="" alt="" />
+    </div>
+  </div>
+
+  <script>
+    const totalPanels = 8;
+    const pages = document.querySelectorAll('.page');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const pageIndicator = document.getElementById('pageIndicator');
+    const progressFill = document.getElementById('progressFill');
+    const bookStage = document.getElementById('bookStage');
+
+    const modeCardsBtn = document.getElementById('modeCardsBtn');
+    const modeFrisoBtn = document.getElementById('modeFrisoBtn');
+    const cardsView = document.getElementById('cardsView');
+    const frisoView = document.getElementById('frisoView');
+
+    const sideFrontBtn = document.getElementById('sideFrontBtn');
+    const sideBackBtn = document.getElementById('sideBackBtn');
+    const foldToggleBtn = document.getElementById('foldToggleBtn');
+    const frisoTrack = document.getElementById('frisoTrack');
+
+    const zoomModal = document.getElementById('zoomModal');
+    const zoomTitle = document.getElementById('zoomTitle');
+    const zoomImg = document.getElementById('zoomImg');
+    const closeZoomBtn = document.getElementById('closeZoomBtn');
+
+    let currentPage = 0;
+    let currentSide = 'front';
+    let isFolded = false;
+
+    function updateBook() {
+      pages.forEach((page, idx) => {
+        page.classList.toggle('active', idx === currentPage);
+      });
+      pageIndicator.textContent = `${currentPage + 1} / ${pages.length}`;
+      progressFill.style.width = `${((currentPage + 1) / pages.length) * 100}%`;
+      prevBtn.disabled = currentPage === 0;
+      nextBtn.disabled = currentPage === pages.length - 1;
+    }
+
+    function renderFriso() {
+      const start = currentSide === 'front' ? 1 : 5;
+      const end = currentSide === 'front' ? 4 : 8;
+      frisoTrack.innerHTML = '';
+
+      for (let i = start; i <= end; i++) {
+        const panel = document.createElement('div');
+        panel.className = 'friso-panel';
+        panel.innerHTML = `
+          <span class="panel-badge">Panel ${i}</span>
+          <img src="./panel-${i}.svg" alt="Panel ${i} - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-${i}.svg</strong></div>
+        `;
+        panel.addEventListener('click', () => {
+          zoomTitle.textContent = `Panel ${i} de ${totalPanels}`;
+          zoomImg.src = `./panel-${i}.svg`;
+          zoomImg.alt = `Panel ${i} ampliado`;
+          zoomModal.classList.add('open');
+        });
+        frisoTrack.appendChild(panel);
+      }
+    }
+
+    function setMode(mode) {
+      const isCards = mode === 'cards';
+      cardsView.classList.toggle('active', isCards);
+      frisoView.classList.toggle('active', !isCards);
+
+      modeCardsBtn.className = isCards ? 'active-mode' : 'secondary-btn';
+      modeFrisoBtn.className = !isCards ? 'active-mode' : 'secondary-btn';
+
+      if (!isCards) {
+        renderFriso();
+      }
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 0) {
+        currentPage--;
+        updateBook();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentPage < pages.length - 1) {
+        currentPage++;
+        updateBook();
+      }
+    });
+
+    modeCardsBtn.addEventListener('click', () => setMode('cards'));
+    modeFrisoBtn.addEventListener('click', () => setMode('friso'));
+
+    sideFrontBtn.addEventListener('click', () => {
+      currentSide = 'front';
+      sideFrontBtn.className = 'active-mode';
+      sideBackBtn.className = 'secondary-btn';
+      renderFriso();
+    });
+
+    sideBackBtn.addEventListener('click', () => {
+      currentSide = 'back';
+      sideBackBtn.className = 'active-mode';
+      sideFrontBtn.className = 'secondary-btn';
+      renderFriso();
+    });
+
+    foldToggleBtn.addEventListener('click', () => {
+      isFolded = !isFolded;
+      frisoTrack.classList.toggle('folded', isFolded);
+      foldToggleBtn.textContent = isFolded ? 'Extender Plano' : 'Plegar Acordeón';
+    });
+
+    closeZoomBtn.addEventListener('click', () => zoomModal.classList.remove('open'));
+    zoomModal.addEventListener('click', (e) => {
+      if (e.target === zoomModal) zoomModal.classList.remove('open');
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (zoomModal.classList.contains('open')) {
+        if (e.key === 'Escape') zoomModal.classList.remove('open');
+        return;
+      }
+      if (!cardsView.classList.contains('active')) return;
+      if (e.key === 'ArrowRight' && currentPage < pages.length - 1) {
+        currentPage++;
+        updateBook();
+      } else if (e.key === 'ArrowLeft' && currentPage > 0) {
+        currentPage--;
+        updateBook();
+      }
+    });
+
+    let touchStartX = 0;
+    bookStage.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    bookStage.addEventListener('touchend', (e) => {
+      const diff = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(diff) > 45) {
+        if (diff < 0 && currentPage < pages.length - 1) {
+          currentPage++;
+          updateBook();
+        } else if (diff > 0 && currentPage > 0) {
+          currentPage--;
+          updateBook();
+        }
+      }
+    }, { passive: true });
+
+    updateBook();
+  </script>
+</body>
+</html>
