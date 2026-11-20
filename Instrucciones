@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instructivo Portavelitas - Paso a Paso</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #18181b;
+      color: #f4f4f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      gap: 18px;
+    }
+
+    .book-stage {
+      width: 100%;
+      max-width: 920px;
+      background: #ffffff;
+      color: #18181b;
+      border-radius: 12px;
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.55),
+        inset 18px 0 28px -18px rgba(0, 0, 0, 0.25);
+      border-left: 10px solid #27272a;
+      padding: 24px;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page {
+      display: none;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      animation: fadePage 0.25s ease;
+    }
+
+    .page.active {
+      display: flex;
+    }
+
+    @keyframes fadePage {
+      from {
+        opacity: 0;
+        transform: translateX(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .page svg {
+      width: 100%;
+      height: auto;
+      max-height: 72vh;
+      display: block;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: #ffffff;
+      color: #18181b;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.12s ease, opacity 0.15s ease, background-color 0.15s ease;
+    }
+
+    button:hover:not(:disabled) {
+      background: #e4e4e7;
+      transform: translateY(-1px);
+    }
+
+    button:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    button:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .page-indicator {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #e4e4e7;
+      min-width: 110px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="book-stage" aria-label="Instructivo interactivo en formato libro">
+    <!-- HOJA 1: Contenido exacto del archivo adjuntado -->
+    <section class="page active" data-page="1">
+      <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" version="1.1" viewBox="0 0 514.83 211.82">
+        <!-- Generator: Adobe Illustrator 31.0.0, SVG Export Plug-In . SVG Version: 2.1.5 Build 84)  -->
+        <defs>
+          <style>
+            .st0, .st1, .st2 {
+              fill: none;
+            }
+
+            .st1 {
+              stroke: #231f20;
+              stroke-miterlimit: 10;
+            }
+
+            .st3 {
+              fill: #c9b5d8;
+            }
+
+            .st3, .st4, .st5, .st6 {
+              opacity: .39;
+            }
+
+            .st7 {
+              fill: url(#linear-gradient2);
+            }
+
+            .st8 {
+              fill: url(#linear-gradient1);
+            }
+
+            .st9 {
+              fill: url(#linear-gradient9);
+            }
+
+            .st10 {
+              fill: url(#linear-gradient3);
+            }
+
+            .st11 {
+              fill: url(#linear-gradient6);
+            }
+
+            .st12 {
+              fill: url(#linear-gradient8);
+            }
+
+            .st13 {
+              fill: url(#linear-gradient7);
+            }
+
+            .st14 {
+              fill: url(#linear-gradient5);
+            }
+
+            .st15 {
+              fill: url(#linear-gradient4);
+            }
+
+            .st16 {
+              fill: #010101;
+            }
+
+            .st17 {
+              fill: url(#linear-gradient31);
+            }
+
+            .st18 {
+              fill: url(#linear-gradient30);
+            }
+
+            .st19 {
+              fill: url(#linear-gradient38);
+            }
+
+            .st20 {
+              fill: url(#linear-gradient32);
+            }
+
+            .st21 {
+              fill: url(#linear-gradient39);
+            }
+
+            .st22 {
+              fill: url(#linear-gradient34);
+            }
+
+            .st23 {
+              fill: url(#linear-gradient37);
+            }
+
+            .st24 {
+              fill: url(#linear-gradient35);
+            }
+
+            .st25 {
+              fill: url(#linear-gradient33);
+            }
+
+            .st26 {
+              fill: url(#linear-gradient36);
+            }
+
+            .st27 {
+              fill: url(#linear-gradient40);
+            }
+
+            .st28 {
+              fill: url(#linear-gradient41);
+            }
+
+            .st29 {
+              fill: url(#linear-gradient42);
+            }
+
+            .st30 {
+              fill: url(#linear-gradient46);
+            }
+
+            .st31 {
+              fill: url(#linear-gradient48);
+            }
+
+            .st32 {
+              fill: url(#linear-gradient43);
+            }
+
+            .st33 {
+              fill: url(#linear-gradient44);
+            }
+
+            .st34 {
+              fill: url(#linear-gradient47);
+            }
+
+            .st35 {
+              fill: url(#linear-gradient45);
+            }
+
+            .st36 {
+              fill: url(#linear-gradient49);
+            }
+
+            .st37 {
+              fill: url(#linear-gradient28);
+            }
+
+            .st38 {
+              fill: url(#linear-gradient29);
+            }
+
+            .st39 {
+              fill: url(#linear-gradient18);
+            }
+
+            .st40 {
+              fill: url(#linear-gradient13);
+            }
+
+            .st41 {
+              fill: url(#linear-gradient12);
+            }
+
+            .st42 {
+              fill: url(#linear-gradient15);
+            }
+
+            .st43 {
+              fill: url(#linear-gradient16);
+            }
+
+            .st44 {
+              fill: url(#linear-gradient11);
+            }
+
+            .st45 {
+              fill: url(#linear-gradient10);
+            }
+
+            .st46 {
+              fill: url(#linear-gradient17);
+            }
+
+            .st47 {
+              fill: url(#linear-gradient14);
+            }
+
+            .st48 {
+              fill: url(#linear-gradient19);
+            }
+
+            .st49 {
+              fill: url(#linear-gradient23);
+            }
+
+            .st50 {
+              fill: url(#linear-gradient22);
+            }
+
+            .st51 {
+              fill: url(#linear-gradient24);
+            }
+
+            .st52 {
+              fill: url(#linear-gradient25);
+            }
+
+            .st53 {
+              fill: url(#linear-gradient21);
+            }
+
+            .st54 {
+              fill: url(#linear-gradient20);
+            }
+
+            .st55 {
+              fill: url(#linear-gradient27);
+            }
+
+            .st56 {
+              fill: url(#linear-gradient26);
+            }
+
+            .st4 {
+              fill: #f15a29;
+            }
+
+            .st57 {
+              fill: #231f20;
+            }
+
+            .st58 {
+              fill: url(#linear-gradient);
+            }
+
+            .st5 {
+              fill: #b1e1ee;
+            }
+
+            .st2 {
+              stroke: #000;
+              stroke-width: .3px;
+            }
+
+            .st59 {
+              fill: #ed1c24;
+            }
+
+            .st60 {
+              clip-path: url(#clippath-17);
+            }
+
+            .st61 {
+              clip-path: url(#clippath-19);
+            }
+
+            .st62 {
+              clip-path: url(#clippath-11);
+            }
+
+            .st63 {
+              clip-path: url(#clippath-16);
+            }
+
+            .st64 {
+              clip-path: url(#clippath-18);
+            }
+
+            .st65 {
+              clip-path: url(#clippath-10);
+            }
+
+            .st66 {
+              clip-path: url(#clippath-15);
+            }
+
+            .st67 {
+              clip-path: url(#clippath-13);
+            }
+
+            .st68 {
+              clip-path: url(#clippath-14);
+            }
+
+            .st69 {
+              clip-path: url(#clippath-12);
+            }
+
+            .st70 {
+              clip-path: url(#clippath-20);
+            }
+
+            .st71 {
+              clip-path: url(#clippath-21);
+            }
+
+            .st72 {
+              clip-path: url(#clippath-22);
+            }
+
+            .st73 {
+              clip-path: url(#clippath-23);
+            }
+
+            .st74 {
+              clip-path: url(#clippath-24);
+            }
+
+            .st75 {
+              clip-path: url(#clippath-25);
+            }
+
+            .st76 {
+              clip-path: url(#clippath-1);
+            }
+
+            .st77 {
+              clip-path: url(#clippath-3);
+            }
+
+            .st78 {
+              clip-path: url(#clippath-4);
+            }
+
+            .st79 {
+              clip-path: url(#clippath-2);
+            }
+
+            .st80 {
+              clip-path: url(#clippath-7);
+            }
+
+            .st81 {
+              clip-path: url(#clippath-6);
+            }
+
+            .st82 {
+              clip-path: url(#clippath-9);
+            }
+
+            .st83 {
+              clip-path: url(#clippath-8);
+            }
+
+            .st84 {
+              clip-path: url(#clippath-5);
+            }
+
+            .st85 {
+              fill: #fff;
+            }
+
+            .st86 {
+              fill: #00aeef;
+              opacity: .32;
+            }
+
+            .st87, .st88 {
+              fill: #f38487;
+            }
+
+            .st88 {
+              opacity: .5;
+            }
+
+            .st6 {
+              fill: #f7d39e;
+            }
+
+            .st89 {
+              fill: #d8cce5;
+              opacity: .1;
+            }
+
+            .st90 {
+              fill: #201f1f;
+            }
+
+            .st91 {
+              clip-path: url(#clippath);
+            }
+
+            .st92 {
+              fill: #ffcf32;
+            }
+          </style>
+          <clipPath id="clippath">
+            <rect class="st0" x="-300.92" y="45.23" width="23.95" height="90.92"/>
+          </clipPath>
+          <clipPath id="clippath-1">
+            <rect class="st0" x="-334.45" y="-90.44" width="379.02" height="268.01"/>
+          </clipPath>
+          <clipPath id="clippath-2">
+            <rect class="st0" x="-334.45" y="-90.44" width="379.02" height="268.01"/>
+          </clipPath>
+          <clipPath id="clippath-3">
+            <rect class="st0" x="-201.34" y="47.57" width="51.43" height="120.65"/>
+          </clipPath>
+          <clipPath id="clippath-4">
+            <rect class="st0" x="-282.22" y="-80.86" width="379.02" height="268.01"/>
+          </clipPath>
+          <clipPath id="clippath-5">
+            <rect class="st0" x="-
