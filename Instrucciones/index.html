@@ -361,36 +361,36 @@
 
       <div id="bookStage" class="book-stage" aria-label="Instructivo interactivo en formato libro">
         <div class="page active" data-page="1">
-          <img src="./panel-1.svg" alt="Panel 1 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
-          <div class="fallback-msg">No se encontró <strong>./panel-1.svg</strong> en la carpeta del instructivo.</div>
+          <img src="./panel-1.jpg" alt="Panel 1 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-1.jpg</strong> en la carpeta del instructivo.</div>
         </div>
         <div class="page" data-page="2">
-          <img src="./panel-2.svg" alt="Panel 2 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
-          <div class="fallback-msg">No se encontró <strong>./panel-2.svg</strong> en la carpeta del instructivo.</div>
+          <img src="./panel-2.jpg" alt="Panel 2 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-2.jpg</strong> en la carpeta del instructivo.</div>
         </div>
         <div class="page" data-page="3">
-          <img src="./panel-3.svg" alt="Panel 3 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
-          <div class="fallback-msg">No se encontró <strong>./panel-3.svg</strong> en la carpeta del instructivo.</div>
+          <img src="./panel-3.jpg" alt="Panel 3 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-3.jpg</strong> en la carpeta del instructivo.</div>
         </div>
         <div class="page" data-page="4">
-          <img src="./panel-4.svg" alt="Panel 4 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
-          <div class="fallback-msg">No se encontró <strong>./panel-4.svg</strong> en la carpeta del instructivo.</div>
+          <img src="./panel-4.jpg" alt="Panel 4 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-4.jpg</strong> en la carpeta del instructivo.</div>
         </div>
         <div class="page" data-page="5">
-          <img src="./panel-5.svg" alt="Panel 5 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
-          <div class="fallback-msg">No se encontró <strong>./panel-5.svg</strong> en la carpeta del instructivo.</div>
+          <img src="./panel-5.jpg" alt="Panel 5 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-5.jpg</strong> en la carpeta del instructivo.</div>
         </div>
         <div class="page" data-page="6">
-          <img src="./panel-6.svg" alt="Panel 6 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
-          <div class="fallback-msg">No se encontró <strong>./panel-6.svg</strong> en la carpeta del instructivo.</div>
+          <img src="./panel-6.jpg" alt="Panel 6 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-6.jpg</strong> en la carpeta del instructivo.</div>
         </div>
         <div class="page" data-page="7">
-          <img src="./panel-7.svg" alt="Panel 7 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
-          <div class="fallback-msg">No se encontró <strong>./panel-7.svg</strong> en la carpeta del instructivo.</div>
+          <img src="./panel-7.jpg" alt="Panel 7 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-7.jpg</strong> en la carpeta del instructivo.</div>
         </div>
         <div class="page" data-page="8">
-          <img src="./panel-8.svg" alt="Panel 8 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
-          <div class="fallback-msg">No se encontró <strong>./panel-8.svg</strong> en la carpeta del instructivo.</div>
+          <img src="./panel-8.jpg" alt="Panel 8 - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-8.jpg</strong> en la carpeta del instructivo.</div>
         </div>
       </div>
 
@@ -425,6 +425,8 @@
 
   <script>
     const totalPanels = 8;
+    const fileExtension = 'jpg';
+
     const pages = document.querySelectorAll('.page');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -471,12 +473,12 @@
         panel.className = 'friso-panel';
         panel.innerHTML = `
           <span class="panel-badge">Panel ${i}</span>
-          <img src="./panel-${i}.svg" alt="Panel ${i} - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
-          <div class="fallback-msg">No se encontró <strong>./panel-${i}.svg</strong></div>
+          <img src="./panel-${i}.${fileExtension}" alt="Panel ${i} - Instructivo Portavelitas" onerror="this.classList.add('broken')" />
+          <div class="fallback-msg">No se encontró <strong>./panel-${i}.${fileExtension}</strong></div>
         `;
         panel.addEventListener('click', () => {
           zoomTitle.textContent = `Panel ${i} de ${totalPanels}`;
-          zoomImg.src = `./panel-${i}.svg`;
+          zoomImg.src = `./panel-${i}.${fileExtension}`;
           zoomImg.alt = `Panel ${i} ampliado`;
           zoomModal.classList.add('open');
         });
